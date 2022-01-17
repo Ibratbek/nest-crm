@@ -7,9 +7,10 @@ import {
   Post,
   Put,
 } from "@nestjs/common";
+import { ApiBody, ApiCreatedResponse, ApiOkResponse } from "@nestjs/swagger";
 import { Observable } from "rxjs";
 import { UpdateResult } from "typeorm";
-import { ICreateGroup, IGroup, IUpdateGroup } from "./dto";
+import { CreateGroupDTO, DeleteGroupDTO, GroupDTO, UpdateGroupDTO } from "./dto";
 import { GroupsService } from "./groups.service";
 
 @Controller("groups")
@@ -17,30 +18,35 @@ export class GroupsController {
   constructor(private readonly groupsService: GroupsService) {}
 
   @Post()
-  createGroup(@Body() name: ICreateGroup): Observable<IGroup> {
+  @ApiCreatedResponse({ description: "Create group" })
+  createGroup(@Body() name: CreateGroupDTO): Observable<GroupDTO> {
     return this.groupsService.createGroup(name);
   }
 
   @Get()
-  getGroups(): Observable<IGroup[]> {
+  @ApiOkResponse({ description: "All groups of crm" })
+  getGroups(): Observable<GroupDTO[]> {
     return this.groupsService.getGroups();
   }
 
   @Get(":id")
-  getGroupById(@Param() id: number): Observable<IGroup> {
+  @ApiOkResponse({ description: "One group" })
+  getGroupById(@Param() id: number): Observable<GroupDTO> {
     return this.groupsService.getGroupById(id);
   }
 
   @Put(":id")
+  @ApiOkResponse({ description: "Successfully updated!" })
   updateGroup(
     @Param() id: number,
-    @Body() name: IUpdateGroup
+    @Body() name: UpdateGroupDTO
   ): Observable<UpdateResult> {
     return this.groupsService.updateGroup(id, name);
   }
 
   @Delete(":id")
-  deleteGroup(@Param() id: number) {
+  @ApiOkResponse({ description: "Successfully deleted!" })
+  deleteGroup(@Param() id: DeleteGroupDTO) {
     return this.groupsService.deleteGroup(id);
   }
 }
