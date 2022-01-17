@@ -1,0 +1,16 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Subject {
+  id: Int!
+  title: String!
+}
+
+type Query {
+  subjects: [Subject!]!
+}
+
+type Mutation {
+  createSubject(title: String!): Subject!
+}
