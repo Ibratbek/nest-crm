@@ -7,17 +7,12 @@ export class GroupDTO {
   name: string;
 }
 
-export class CreateGroupDTO {
-  @ApiProperty({ type: String })
-  name: string;
-}
-
-export class UpdateGroupDTO {
-  @ApiProperty({ type: String })
-  name: string;
-}
-
-export class DeleteGroupDTO {
+export class GroupIdDTO {
   @ApiProperty({ type: Number })
   id: number;
+}
+
+export class GroupNameDTO {
+  @ApiProperty({ type: String })
+  name: string;
 }
