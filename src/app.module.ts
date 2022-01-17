@@ -6,6 +6,7 @@ import { AppService } from "./app.service";
 import { StudentsModule } from "./modules/students/students.module";
 import { GroupsModule } from "./modules/groups/groups.module";
 import { SubjectsModule } from "./modules/subjects/subjects.module";
+import { TeachersModule } from './modules/teachers/teachers.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { SubjectsModule } from "./modules/subjects/subjects.module";
     StudentsModule,
     GroupsModule,
     SubjectsModule,
+    TeachersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
