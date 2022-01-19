@@ -7,13 +7,14 @@ import {
   Post,
   Put,
 } from "@nestjs/common";
-import { ApiCreatedResponse, ApiOkResponse } from "@nestjs/swagger";
+import { ApiCreatedResponse, ApiOkResponse, ApiTags } from "@nestjs/swagger";
 import { Observable } from "rxjs";
 import { UpdateResult } from "typeorm";
 import { CreateGroupDTO, GroupDTO, UpdateGroupDTO } from "./dto";
 import { GroupsService } from "./groups.service";
 
 @Controller("groups")
+@ApiTags("Groups")
 export class GroupsController {
   constructor(private readonly groupsService: GroupsService) {}
 

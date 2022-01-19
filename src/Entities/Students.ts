@@ -1,4 +1,10 @@
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from "typeorm";
 import { Group } from "./Groups";
 
 @Entity("students")
@@ -13,5 +19,6 @@ export class Student {
   last_name: string;
 
   @OneToOne(() => Group, (group) => group.id)
-  group_id: Group;
+  @JoinColumn({ name: "group_id" })
+  group: Group;
 }
