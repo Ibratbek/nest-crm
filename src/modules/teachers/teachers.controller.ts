@@ -10,7 +10,7 @@ import {
 import { Observable } from "rxjs";
 import { Teacher } from "src/Entities/Teachers";
 import { DeleteResult } from "typeorm";
-import { CreateTeacherDTO, GetTeacherParamDTO, UpdateTeacherDTO } from "./dto";
+import { CreateTeacherDTO, UpdateTeacherDTO } from "./dto";
 import { TeachersService } from "./teachers.service";
 
 @Controller("teachers")
@@ -22,7 +22,7 @@ export class TeachersController {
   }
 
   @Get(":id")
-  getTeacher(@Param() param: GetTeacherParamDTO): Observable<Teacher> {
+  getTeacher(@Param() param: { id: number }): Observable<Teacher> {
     return this.teacherService.getTeacher(param.id);
   }
 
@@ -34,15 +34,14 @@ export class TeachersController {
   @Put("/:id")
   updateTeacher(
     @Body() body: UpdateTeacherDTO,
-    @Param() param: GetTeacherParamDTO
+    @Param() param: { id: number }
   ): Observable<Teacher> {
-
     body.id = param.id;
     return this.teacherService.updateTeacher(body);
   }
 
   @Delete("/:id")
-  deleteTeacher(@Param() param: GetTeacherParamDTO): Observable<DeleteResult> {
+  deleteTeacher(@Param() param: { id: number }): Observable<DeleteResult> {
     return this.teacherService.deleteTeacher(param.id);
   }
 }

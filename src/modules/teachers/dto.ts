@@ -33,9 +33,3 @@ export class UpdateTeacherDTO {
   @ApiProperty({ type: String })
   lastName: string;
 }
-
-export class GetTeacherParamDTO {
-  @IsNumber()
-  @ApiProperty({ type: Number })
-  id: number;
-}
