@@ -5,12 +5,12 @@ import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { StudentsModule } from "./modules/students/students.module";
 import { GroupsModule } from "./modules/groups/groups.module";
-import { SubjectsModule } from "./modules/subjects/subjects.module";
 import { TeachersModule } from "./modules/teachers/teachers.module";
 import { SubjectTeacherModule } from "./modules/subject-teacher/subject-teacher.module";
 import { MarksModule } from "./modules/marks/marks.module";
 import { GraphQLModule } from "@nestjs/graphql";
 import { join } from "path";
+import { SubjectsModule } from "./modules/subjects/subjects.module";
 
 @Module({
   imports: [
