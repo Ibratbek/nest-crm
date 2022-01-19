@@ -23,9 +23,6 @@ export class CreateTeacherDTO {
 }
 
 export class UpdateTeacherDTO {
-  @IsNumber()
-  @ApiProperty({ type: Number })
-  id: number;
   @IsString()
   @ApiProperty({ type: String })
   firstName: string;

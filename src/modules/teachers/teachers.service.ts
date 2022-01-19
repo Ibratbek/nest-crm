@@ -30,7 +30,11 @@ export class TeachersService {
   }
 
   updateTeacher(body: UpdateTeacherDTO, id: number): Observable<UpdateResult> {
-    return from(this.teachersRepository.update(id, body));
+    const teacher = this.teachersRepository.create({
+      first_name: body.firstName,
+      last_name: body.lastName,
+    });
+    return from(this.teachersRepository.update(id, teacher));
   }
 
   deleteTeacher(id: number): Observable<DeleteResult> {
