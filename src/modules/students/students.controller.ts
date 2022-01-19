@@ -7,6 +7,7 @@ import {
   Post,
   Put,
 } from "@nestjs/common";
+import { ApiOkResponse, ApiTags } from "@nestjs/swagger";
 import { Observable } from "rxjs";
 import { Student } from "src/Entities/Students";
 import { DeleteResult, UpdateResult } from "typeorm";
@@ -14,15 +15,18 @@ import { CreateStudentDTO, StudentDTO, UpdateStudentDTO } from "./dto";
 import { StudentsService } from "./students.service";
 
 @Controller("students")
+@ApiTags("Students")
 export class StudentsController {
   constructor(private readonly studentService: StudentsService) {}
 
   @Post()
+  @ApiOkResponse({ description: "succesfully added" })
   createStudent(@Body() body: CreateStudentDTO): Observable<StudentDTO> {
     return this.studentService.insertStudent(body);
   }
 
   @Get()
+  @ApiOkResponse({ description: "succesfully get" })
   getStudents(): Observable<Student[]> {
     return this.studentService.getStudents();
   }
