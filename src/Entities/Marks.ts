@@ -1,4 +1,10 @@
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from "typeorm";
 import { Student } from "./Students";
 import { Subject } from "./Subjects";
 
@@ -8,12 +14,14 @@ export class Mark {
   id: number;
 
   @OneToOne(() => Student, (student) => student.id)
-  student_id: Student;
+  @JoinColumn({ name: "student_id" })
+  student: Student;
 
   @OneToOne(() => Subject, (subject) => subject.id)
-  subject_id: Subject;
+  @JoinColumn({ name: "subject_id" })
+  subject: Subject;
 
-  @Column({ type: Date, default: () => "CURRENT_TIMESTAPM" })
+  @Column({ type: Date, default: () => "CURRENT_TIMESTAMP" })
   date: Date;
 
   @Column()
