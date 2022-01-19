@@ -1,6 +1,14 @@
-import { Body, Controller, Get, Param, Post, Put } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from "@nestjs/common";
 import { Observable } from "rxjs";
-import { UpdateResult } from "typeorm";
+import { DeleteResult, UpdateResult } from "typeorm";
 import { CreateMarkDTO, MarkDTO, UpdateMarkDTO } from "./dto";
 import { MarksService } from "./marks.service";
 
@@ -29,5 +37,10 @@ export class MarksController {
     @Body() body: UpdateMarkDTO
   ): Observable<UpdateResult> {
     return this.marksService.update(id, body);
+  }
+
+  @Delete(":id")
+  deleteMark(@Param() id: number): Observable<DeleteResult> {
+    return this.marksService.delete(id);
   }
 }
