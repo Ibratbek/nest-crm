@@ -2,8 +2,8 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { from, Observable } from "rxjs";
 import { Subject } from "src/Entities/Subjects";
-import { Repository } from "typeorm";
-import { CreateSubjectDTO, SubjectDTO } from "./dto";
+import { Repository, UpdateResult } from "typeorm";
+import { CreateSubjectDTO, SubjectDTO, UpdateSubjectDTO } from "./dto";
 
 @Injectable()
 export class SubjectsService {
@@ -18,5 +18,9 @@ export class SubjectsService {
 
   getAll(): Observable<SubjectDTO[]> {
     return from(this.subjectRepository.find());
+  }
+
+  updateSubject(id: number, body: UpdateSubjectDTO): Observable<UpdateResult> {
+    return from(this.subjectRepository.update(id, body));
   }
 }

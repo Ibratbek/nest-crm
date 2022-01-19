@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, Put } from "@nestjs/common";
 import { Observable } from "rxjs";
-import { CreateSubjectDTO, SubjectDTO } from "./dto";
+import { UpdateResult } from "typeorm";
+import { CreateSubjectDTO, SubjectDTO, UpdateSubjectDTO } from "./dto";
 import { SubjectsService } from "./subjects.service";
 
 @Controller("subjects")
@@ -15,5 +16,13 @@ export class SubjectsController {
   @Get()
   getSubjects(): Observable<SubjectDTO[]> {
     return this.subjectService.getAll();
+  }
+
+  @Put("/:id")
+  updateSubject(
+    @Param() id: number,
+    @Body() body: UpdateSubjectDTO
+  ): Observable<UpdateResult> {
+    return this.subjectService.updateSubject(id, body);
   }
 }
