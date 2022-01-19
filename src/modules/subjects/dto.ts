@@ -3,10 +3,10 @@ export class SubjectDTO {
   title: string;
 }
 
-export class SubjectIdDTO {
-  id: number;
+export class CreateSubjectDTO {
+  title: string;
 }
 
-export class SubjectTitleDTO {
+export class UpdateSubjectDTO {
   title: string;
 }
