@@ -9,7 +9,7 @@ import {
 } from "@nestjs/common";
 import { Observable } from "rxjs";
 import { Teacher } from "src/Entities/Teachers";
-import { DeleteResult } from "typeorm";
+import { DeleteResult, UpdateResult } from "typeorm";
 import { CreateTeacherDTO, UpdateTeacherDTO } from "./dto";
 import { TeachersService } from "./teachers.service";
 
@@ -22,8 +22,8 @@ export class TeachersController {
   }
 
   @Get(":id")
-  getTeacher(@Param() param: { id: number }): Observable<Teacher> {
-    return this.teacherService.getTeacher(param.id);
+  getTeacher(@Param() id: number): Observable<Teacher> {
+    return this.teacherService.getTeacher(id);
   }
 
   @Post()
@@ -34,14 +34,13 @@ export class TeachersController {
   @Put("/:id")
   updateTeacher(
     @Body() body: UpdateTeacherDTO,
-    @Param() param: { id: number }
-  ): Observable<Teacher> {
-    body.id = param.id;
-    return this.teacherService.updateTeacher(body);
+    @Param() id: number
+  ): Observable<UpdateResult> {
+    return this.teacherService.updateTeacher(body, id);
   }
 
   @Delete("/:id")
-  deleteTeacher(@Param() param: { id: number }): Observable<DeleteResult> {
-    return this.teacherService.deleteTeacher(param.id);
+  deleteTeacher(@Param() id: number): Observable<DeleteResult> {
+    return this.teacherService.deleteTeacher(id);
   }
 }

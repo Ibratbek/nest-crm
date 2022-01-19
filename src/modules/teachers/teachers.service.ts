@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { from, Observable } from "rxjs";
 import { Teacher } from "src/Entities/Teachers";
-import { DeleteResult, Repository } from "typeorm";
+import { DeleteResult, Repository, UpdateResult } from "typeorm";
 import { CreateTeacherDTO, UpdateTeacherDTO } from "./dto";
 
 @Injectable()
@@ -29,14 +29,8 @@ export class TeachersService {
     return from(this.teachersRepository.findOne(id));
   }
 
-  updateTeacher(body: UpdateTeacherDTO): Observable<Teacher> {
-    const teacher = this.teachersRepository.create({
-      id: body.id,
-      first_name: body.firstName,
-      last_name: body.lastName,
-    });
-
-    return from(this.teachersRepository.save(teacher));
+  updateTeacher(body: UpdateTeacherDTO, id: number): Observable<UpdateResult> {
+    return from(this.teachersRepository.update(id, body));
   }
 
   deleteTeacher(id: number): Observable<DeleteResult> {
