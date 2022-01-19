@@ -3,7 +3,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { from, Observable } from "rxjs";
 import { Group } from "src/Entities/Groups";
 import { DeleteResult, Repository, UpdateResult } from "typeorm";
-import { GroupDTO, GroupIdDTO, GroupNameDTO } from "./dto";
+import { CreateGroupDTO, GroupDTO, UpdateGroupDTO } from "./dto";
 
 @Injectable()
 export class GroupsService {
@@ -12,7 +12,7 @@ export class GroupsService {
     private readonly groupsRepository: Repository<Group>
   ) {}
 
-  createGroup(name: GroupNameDTO): Observable<GroupDTO> {
+  createGroup(name: CreateGroupDTO): Observable<GroupDTO> {
     return from(this.groupsRepository.save(name));
   }
 
@@ -20,15 +20,15 @@ export class GroupsService {
     return from(this.groupsRepository.find());
   }
 
-  getGroupById(id: GroupIdDTO): Observable<GroupDTO> {
+  getGroupById(id: number): Observable<GroupDTO> {
     return from(this.groupsRepository.findOne(id));
   }
 
-  updateGroup(id: GroupIdDTO, group: GroupNameDTO): Observable<UpdateResult> {
+  updateGroup(id: number, group: UpdateGroupDTO): Observable<UpdateResult> {
     return from(this.groupsRepository.update(id, group));
   }
 
-  deleteGroup(id: GroupIdDTO): Observable<DeleteResult> {
+  deleteGroup(id: number): Observable<DeleteResult> {
     return from(this.groupsRepository.delete(id));
   }
 }

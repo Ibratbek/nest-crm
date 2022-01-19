@@ -10,7 +10,7 @@ import {
 import { ApiCreatedResponse, ApiOkResponse } from "@nestjs/swagger";
 import { Observable } from "rxjs";
 import { UpdateResult } from "typeorm";
-import { GroupDTO, GroupIdDTO, GroupNameDTO } from "./dto";
+import { CreateGroupDTO, GroupDTO, UpdateGroupDTO } from "./dto";
 import { GroupsService } from "./groups.service";
 
 @Controller("groups")
@@ -19,7 +19,7 @@ export class GroupsController {
 
   @Post()
   @ApiCreatedResponse({ description: "Create group" })
-  createGroup(@Body() name: GroupNameDTO): Observable<GroupDTO> {
+  createGroup(@Body() name: CreateGroupDTO): Observable<GroupDTO> {
     return this.groupsService.createGroup(name);
   }
 
@@ -31,22 +31,22 @@ export class GroupsController {
 
   @Get(":id")
   @ApiOkResponse({ description: "One group" })
-  getGroupById(@Param() id: GroupIdDTO): Observable<GroupDTO> {
+  getGroupById(@Param() id: number): Observable<GroupDTO> {
     return this.groupsService.getGroupById(id);
   }
 
   @Put(":id")
   @ApiOkResponse({ description: "Successfully updated!" })
   updateGroup(
-    @Param() id: GroupIdDTO,
-    @Body() name: GroupNameDTO
+    @Param() id: number,
+    @Body() name: UpdateGroupDTO
   ): Observable<UpdateResult> {
     return this.groupsService.updateGroup(id, name);
   }
 
   @Delete(":id")
   @ApiOkResponse({ description: "Successfully deleted!" })
-  deleteGroup(@Param() id: GroupIdDTO) {
+  deleteGroup(@Param() id: number) {
     return this.groupsService.deleteGroup(id);
   }
 }
