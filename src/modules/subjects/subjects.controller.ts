@@ -26,6 +26,11 @@ export class SubjectsController {
     return this.subjectService.getAll();
   }
 
+  @Get("/:id")
+  getSubjectById(@Param() id: number): Observable<SubjectDTO> {
+    return this.subjectService.getSubjectById(id);
+  }
+
   @Put("/:id")
   updateSubject(
     @Param() id: number,

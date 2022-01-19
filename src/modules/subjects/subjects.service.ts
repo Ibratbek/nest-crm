@@ -20,6 +20,10 @@ export class SubjectsService {
     return from(this.subjectRepository.find());
   }
 
+  getSubjectById(id: number): Observable<SubjectDTO> {
+    return from(this.subjectRepository.findOne(id));
+  }
+
   updateSubject(id: number, body: UpdateSubjectDTO): Observable<UpdateResult> {
     return from(this.subjectRepository.update(id, body));
   }
