@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from "@nestjs/common";
+import { Body, Controller, Get, Post } from "@nestjs/common";
 import { Observable } from "rxjs";
 import { CreateSubjectDTO, SubjectDTO } from "./dto";
 import { SubjectsService } from "./subjects.service";
@@ -10,5 +10,10 @@ export class SubjectsController {
   @Post()
   createSubject(@Body() body: CreateSubjectDTO): Observable<SubjectDTO> {
     return this.subjectService.createSubject(body);
+  }
+
+  @Get()
+  getSubjects(): Observable<SubjectDTO[]> {
+    return this.subjectService.getAll();
   }
 }

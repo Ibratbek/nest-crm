@@ -15,4 +15,8 @@ export class SubjectsService {
   createSubject(body: CreateSubjectDTO): Observable<SubjectDTO> {
     return from(this.subjectRepository.save(body));
   }
+
+  getAll(): Observable<SubjectDTO[]> {
+    return from(this.subjectRepository.find());
+  }
 }
