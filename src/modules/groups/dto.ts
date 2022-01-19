@@ -11,12 +11,14 @@ export class GroupDTO {
   name: string;
 }
 
-export class GroupIdDTO {
-  @ApiProperty({ type: Number })
-  id: number;
+export class CreateGroupDTO {
+  @IsString()
+  @ApiProperty({ type: String })
+  name: string;
 }
 
-export class GroupNameDTO {
+export class UpdateGroupDTO {
+  @IsString()
   @ApiProperty({ type: String })
   name: string;
 }
