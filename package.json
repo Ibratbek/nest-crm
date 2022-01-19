@@ -18,8 +18,8 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "generate:compodoc":"npx compodoc -p tsconfig.doc.json",
-    "run:compodoc":"npx compodoc -p tsconfig.doc.json -s"
+    "compodoc:generate": "npx compodoc -p tsconfig.doc.json",
+    "compodoc:run": "npx compodoc -p tsconfig.doc.json -s"
   },
   "dependencies": {
     "@nestjs/common": "^8.1.1",
