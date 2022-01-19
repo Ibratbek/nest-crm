@@ -1,6 +1,14 @@
-import { Body, Controller, Get, Param, Post, Put } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from "@nestjs/common";
 import { Observable } from "rxjs";
-import { UpdateResult } from "typeorm";
+import { DeleteResult, UpdateResult } from "typeorm";
 import { CreateSubjectDTO, SubjectDTO, UpdateSubjectDTO } from "./dto";
 import { SubjectsService } from "./subjects.service";
 
@@ -24,5 +32,10 @@ export class SubjectsController {
     @Body() body: UpdateSubjectDTO
   ): Observable<UpdateResult> {
     return this.subjectService.updateSubject(id, body);
+  }
+
+  @Delete("/:id")
+  deleteSubject(@Param() id: number): Observable<DeleteResult> {
+    return this.subjectService.deleteSubject(id);
   }
 }
