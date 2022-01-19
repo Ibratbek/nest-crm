@@ -8,16 +8,11 @@ import { GroupsModule } from "./modules/groups/groups.module";
 import { TeachersModule } from "./modules/teachers/teachers.module";
 import { SubjectTeacherModule } from "./modules/subject-teacher/subject-teacher.module";
 import { MarksModule } from "./modules/marks/marks.module";
-import { GraphQLModule } from "@nestjs/graphql";
-import { join } from "path";
 import { SubjectsModule } from "./modules/subjects/subjects.module";
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    GraphQLModule.forRoot({
-      autoSchemaFile: join(process.cwd(), "src/schema.gql"),
-    }),
     TypeOrmModule.forRoot({
       type: "postgres",
       host: process.env.POSTGRES_HOST,
