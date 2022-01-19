@@ -21,4 +21,25 @@ export class MarksService {
 
     return from(this.marksRepository.save(mark));
   }
+
+  getAll(): Observable<MarkDTO[]> {
+    return from(
+      this.marksRepository
+        .createQueryBuilder("mark")
+        .leftJoinAndSelect("mark.student", "student")
+        .leftJoinAndSelect("mark.subject", "subject")
+        .getMany()
+    );
+  }
+
+  getOne(id: number): Observable<MarkDTO> {
+    return from(
+      this.marksRepository
+        .createQueryBuilder("mark")
+        .leftJoinAndSelect("mark.student", "student")
+        .leftJoinAndSelect("mark.subject", "subject")
+        .where("mark.id = :id", { id: id })
+        .getOne()
+    );
+  }
 }
