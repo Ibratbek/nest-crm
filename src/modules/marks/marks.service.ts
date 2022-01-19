@@ -2,8 +2,8 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { from, Observable } from "rxjs";
 import { Mark } from "src/Entities/Marks";
-import { Repository } from "typeorm";
-import { CreateMarkDTO, MarkDTO } from "./dto";
+import { Repository, UpdateResult } from "typeorm";
+import { CreateMarkDTO, MarkDTO, UpdateMarkDTO } from "./dto";
 
 @Injectable()
 export class MarksService {
@@ -41,5 +41,9 @@ export class MarksService {
         .where("mark.id = :id", { id: id })
         .getOne()
     );
+  }
+
+  update(id: number, body: UpdateMarkDTO): Observable<UpdateResult> {
+    return from(this.marksRepository.update(id, body));
   }
 }

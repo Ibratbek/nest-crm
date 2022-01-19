@@ -16,7 +16,7 @@ export class CreateMarkDTO {
 }
 
 export class UpdateMarkDTO {
-  studentId: number;
-  subjectId: number;
-  mark: number;
+  studentId?: number;
+  subjectId?: number;
+  mark?: number;
 }
