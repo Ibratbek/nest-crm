@@ -2,8 +2,9 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { from, Observable } from "rxjs";
 import { Subject } from "src/Entities/Subjects";
-import { Repository } from "typeorm";
-import { SubjectDTO } from "./dto";
+import { DeleteResult, Repository, UpdateResult } from "typeorm";
+import { CreateSubjectDTO, SubjectDTO, UpdateSubjectDTO } from "./dto";
+
 @Injectable()
 export class SubjectsService {
   constructor(
@@ -11,11 +12,23 @@ export class SubjectsService {
     private readonly subjectRepository: Repository<Subject>
   ) {}
 
-  createSubject(title: string): Observable<Subject> {
-    return from(this.subjectRepository.save({ title }));
+  createSubject(body: CreateSubjectDTO): Observable<SubjectDTO> {
+    return from(this.subjectRepository.save(body));
   }
 
-  findAll(): Observable<SubjectDTO[]> {
+  getAll(): Observable<SubjectDTO[]> {
     return from(this.subjectRepository.find());
+  }
+
+  getSubjectById(id: number): Observable<SubjectDTO> {
+    return from(this.subjectRepository.findOne(id));
+  }
+
+  updateSubject(id: number, body: UpdateSubjectDTO): Observable<UpdateResult> {
+    return from(this.subjectRepository.update(id, body));
+  }
+
+  deleteSubject(id: number): Observable<DeleteResult> {
+    return from(this.subjectRepository.delete(id));
   }
 }
