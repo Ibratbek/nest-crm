@@ -16,6 +16,12 @@ import { StudentsService } from "./students.service";
 @Controller("students")
 export class StudentsController {
   constructor(private readonly studentService: StudentsService) {}
+
+  @Post()
+  createStudent(@Body() body: CreateStudentDTO): Observable<StudentDTO> {
+    return this.studentService.insertStudent(body);
+  }
+
   @Get()
   getStudents(): Observable<Student[]> {
     return this.studentService.getStudents();
@@ -24,11 +30,6 @@ export class StudentsController {
   @Get("/:id")
   getStudent(@Param("id") id: number): Observable<Student> {
     return this.studentService.getStudent(id);
-  }
-
-  @Post()
-  createStudent(@Body() body: CreateStudentDTO): Observable<StudentDTO> {
-    return this.studentService.insertStudent(body);
   }
 
   @Put("/:id")
