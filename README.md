@@ -1,5 +1,5 @@
 <h1> Simple CRM project </h1>
 
-- NestJS: nestjs.com
-- TypeORM: typeorm.io
+- NestJS: www.nestjs.com
+- TypeORM: www.typeorm.io
 - Conventional Commits: www.conventionalcommits.org/en/v1.0.0/
