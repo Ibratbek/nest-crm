@@ -2,7 +2,7 @@ import {
   Column,
   Entity,
   JoinColumn,
-  OneToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Group } from "./Groups";
@@ -19,7 +19,7 @@ export class Student {
   last_name: string;
 
   // TODO ManyToOne'ga o'zgartirish kerak
-  @OneToOne(() => Group, (group) => group.id)
+  @OneToMany(() => Group, (group) => group.id)
   @JoinColumn({ name: "group_id" })
   group: Group;
 }
