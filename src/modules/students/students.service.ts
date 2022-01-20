@@ -3,7 +3,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { from, Observable } from "rxjs";
 import { Student } from "src/Entities/Students";
 import { DeleteResult, Repository, UpdateResult } from "typeorm";
-import { CreateStudentDTO, StudentDTO, UpdateStudentDTO } from "./dto";
+import { CreateStudentDTO, UpdateStudentDTO } from "./dto";
 
 @Injectable()
 export class StudentsService {
