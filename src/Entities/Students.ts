@@ -2,7 +2,7 @@ import {
   Column,
   Entity,
   JoinColumn,
-  OneToMany,
+  ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Group } from "./Groups";
@@ -18,7 +18,7 @@ export class Student {
   @Column()
   last_name: string;
 
-  @OneToMany(() => Group, (group) => group.id)
+  @ManyToOne(() => Group, (group) => group.id)
   @JoinColumn({ name: "group_id" })
   group: Group;
 }
