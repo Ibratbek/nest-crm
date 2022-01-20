@@ -1,6 +1,5 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { from, Observable } from "rxjs";
 import { Group } from "src/Entities/Groups";
 import { DeleteResult, Repository, UpdateResult } from "typeorm";
 import { CreateGroupDTO, GroupDTO, UpdateGroupDTO } from "./dto";
@@ -12,23 +11,27 @@ export class GroupsService {
     private readonly groupsRepository: Repository<Group>
   ) {}
 
-  createGroup(name: CreateGroupDTO): Observable<GroupDTO> {
-    return from(this.groupsRepository.save(name));
+  async createGroup(name: CreateGroupDTO): Promise<GroupDTO> {
+    return await this.groupsRepository.save(name);
   }
 
-  getGroups(): Observable<GroupDTO[]> {
-    return from(this.groupsRepository.find());
+  async getGroups(): Promise<GroupDTO[]> {
+    return await this.groupsRepository.find();
   }
 
-  getGroupById(id: number): Observable<GroupDTO> {
-    return from(this.groupsRepository.findOne(id));
+  async getGroupById(id: number): Promise<GroupDTO> {
+    return await this.groupsRepository.findOne(id);
   }
 
-  updateGroup(id: number, group: UpdateGroupDTO): Observable<UpdateResult> {
-    return from(this.groupsRepository.update(id, group));
+  async updateGroup(id: number, group: UpdateGroupDTO): Promise<UpdateResult> {
+    return await this.groupsRepository.update(id, group);
   }
 
-  deleteGroup(id: number): Observable<DeleteResult> {
-    return from(this.groupsRepository.delete(id));
+  async deleteGroup(id: number): Promise<DeleteResult> {
+    return await this.groupsRepository.delete(id);
+  }
+
+  async getGroupByName(name: CreateGroupDTO): Promise<GroupDTO> {
+    return await this.groupsRepository.findOne(name);
   }
 }

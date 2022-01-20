@@ -7,12 +7,14 @@ import {
   Post,
   Put,
 } from "@nestjs/common";
+import { ApiTags } from "@nestjs/swagger";
 import { Observable } from "rxjs";
 import { DeleteResult, UpdateResult } from "typeorm";
 import { CreateMarkDTO, MarkDTO, UpdateMarkDTO } from "./dto";
 import { MarksService } from "./marks.service";
 
 @Controller("marks")
+@ApiTags("Marks")
 export class MarksController {
   constructor(private readonly marksService: MarksService) {}
 
