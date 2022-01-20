@@ -1,4 +1,11 @@
-import { Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from "typeorm";
 import { Group } from "./Groups";
 import { Teacher } from "./Teachers";
 
@@ -7,9 +14,12 @@ export class SubjectTeacher {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToOne(() => Teacher, (teacher) => teacher.id)
-  techer_id: Teacher;
+  @ManyToOne(() => Group, (group) => group.id)
+  @JoinColumn({ name: "group_id" })
+  group: Group;
 
-  @OneToOne(() => Group, (group) => group.id)
-  group_id: Group;
+  @OneToOne(() => Teacher, (teacher) => teacher.id)
+  @JoinColumn({ name: "teacher_id" })
+  teacher: Teacher;
+  subject_teacher: { id: number };
 }
