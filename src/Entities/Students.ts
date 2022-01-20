@@ -18,7 +18,6 @@ export class Student {
   @Column()
   last_name: string;
 
-  // TODO ManyToOne'ga o'zgartirish kerak
   @OneToMany(() => Group, (group) => group.id)
   @JoinColumn({ name: "group_id" })
   group: Group;

@@ -3,7 +3,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { from, Observable } from "rxjs";
 import { Student } from "src/Entities/Students";
 import { DeleteResult, Repository, UpdateResult } from "typeorm";
-import { CreateStudentDTO, UpdateStudentDTO } from "./dto";
+import { CreateStudentDTO, StudentDTO, UpdateStudentDTO } from "./dto";
 
 @Injectable()
 export class StudentsService {
@@ -11,6 +11,15 @@ export class StudentsService {
     @InjectRepository(Student)
     private readonly studentRepository: Repository<Student>
   ) {}
+
+  async insertStudent(body: CreateStudentDTO): Promise<Student> {
+    const student = this.studentRepository.create({
+      first_name: body.firstName,
+      last_name: body.lastName,
+      group: { id: body.groupId },
+    });
+    return await this.studentRepository.save(student);
+  }
 
   getStudents(): Observable<Student[]> {
     return from(
@@ -29,15 +38,6 @@ export class StudentsService {
         .where("student.id = :id", { id: id })
         .getOne()
     );
-  }
-
-  insertStudent(body: CreateStudentDTO): Observable<Student> {
-    const student = this.studentRepository.create({
-      first_name: body.firstName,
-      last_name: body.lastName,
-      group: { id: body.groupId },
-    });
-    return from(this.studentRepository.save(student));
   }
 
   updateStudent(body: UpdateStudentDTO, id: number): Observable<UpdateResult> {

@@ -7,7 +7,7 @@ import {
   Post,
   Put,
 } from "@nestjs/common";
-import { ApiOkResponse, ApiTags } from "@nestjs/swagger";
+import { ApiBadRequestResponse, ApiOkResponse, ApiTags } from "@nestjs/swagger";
 import { Observable } from "rxjs";
 import { Student } from "src/Entities/Students";
 import { DeleteResult, UpdateResult } from "typeorm";
@@ -20,30 +20,41 @@ export class StudentsController {
   constructor(private readonly studentService: StudentsService) {}
 
   @Post()
-  @ApiOkResponse({ description: "succesfully added" })
-  createStudent(@Body() body: CreateStudentDTO): Observable<StudentDTO> {
-    return this.studentService.insertStudent(body);
+  @ApiOkResponse({ description: "Created" })
+  @ApiBadRequestResponse({
+    description: "Bad Request",
+    schema: {
+      type: "String",
+      enum: ["Name must be a string"],
+    },
+  })
+  async createStudent(@Body() body: CreateStudentDTO): Promise<StudentDTO> {
+    return await this.studentService.insertStudent(body);
   }
 
   @Get()
-  @ApiOkResponse({ description: "succesfully get" })
+  @ApiOkResponse({ description: "OK" })
   getStudents(): Observable<Student[]> {
     return this.studentService.getStudents();
   }
 
   @Get("/:id")
+  @ApiOkResponse({ description: "OK" })
   getStudent(@Param("id") id: number): Observable<Student> {
     return this.studentService.getStudent(id);
   }
 
   @Put("/:id")
+  @ApiOkResponse({ description: "OK" })
   updateStudent(
     @Body() body: UpdateStudentDTO,
     @Param() id: number
   ): Observable<UpdateResult> {
     return this.studentService.updateStudent(body, id);
   }
+
   @Delete("/:id")
+  @ApiOkResponse({ description: "OK" })
   deleteStudent(@Param() id: number): Observable<DeleteResult> {
     return this.studentService.deleteStudent(id);
   }
