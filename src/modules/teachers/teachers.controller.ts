@@ -3,12 +3,18 @@ import {
   Controller,
   Delete,
   Get,
+  NotFoundException,
   Param,
   Post,
   Put,
 } from "@nestjs/common";
-import { ApiTags } from "@nestjs/swagger";
-import { Observable } from "rxjs";
+import {
+  ApiBadRequestResponse,
+  ApiCreatedResponse,
+  ApiNotFoundResponse,
+  ApiOkResponse,
+  ApiTags,
+} from "@nestjs/swagger";
 import { Teacher } from "src/Entities/Teachers";
 import { DeleteResult, UpdateResult } from "typeorm";
 import { CreateTeacherDTO, UpdateTeacherDTO } from "./dto";
@@ -19,30 +25,72 @@ import { TeachersService } from "./teachers.service";
 export class TeachersController {
   constructor(private readonly teacherService: TeachersService) {}
   @Get()
-  getTeachers(): Observable<Teacher[]> {
-    return this.teacherService.getTeachers();
+  @ApiOkResponse({ description: "OK" })
+  async getTeachers(): Promise<Teacher[]> {
+    return await this.teacherService.getTeachers();
   }
 
   @Get(":id")
-  getTeacher(@Param() id: number): Observable<Teacher> {
-    return this.teacherService.getTeacher(id);
+  @ApiOkResponse({ description: "OK" })
+  @ApiNotFoundResponse({ description: "This teacher not found!" })
+  async getTeacher(@Param("id") id: number): Promise<Teacher> {
+    const teacher = await this.teacherService.getTeacher(id);
+
+    if (!teacher) {
+      throw new NotFoundException("This teacher not found!");
+    }
+    return teacher;
   }
 
   @Post()
-  createTeacher(@Body() body: CreateTeacherDTO): Observable<Teacher> {
-    return this.teacherService.createTeacher(body);
+  @ApiCreatedResponse({ description: "Created" })
+  @ApiBadRequestResponse({
+    description: "Bad Request",
+  })
+  async createTeacher(@Body() body: CreateTeacherDTO): Promise<Teacher> {
+    return await this.teacherService.createTeacher(body);
   }
 
   @Put("/:id")
-  updateTeacher(
+  @ApiOkResponse({ description: "OK" })
+  @ApiNotFoundResponse({ description: "This group not found!" })
+  @ApiBadRequestResponse({
+    description: "Bad Request",
+    schema: {
+      type: "String",
+      enum: ["firstName must be a string", "lastName must be a string"],
+    },
+  })
+  async UpdateTeacher(
     @Body() body: UpdateTeacherDTO,
     @Param() id: number
-  ): Observable<UpdateResult> {
-    return this.teacherService.updateTeacher(body, id);
+  ): Promise<UpdateResult> {
+    const teacher = await this.teacherService.getTeacher(id);
+
+    if (!teacher) {
+      throw new NotFoundException("This teacher not found!");
+    }
+
+    return await this.teacherService.updateTeacher(body, id);
   }
 
   @Delete("/:id")
-  deleteTeacher(@Param() id: number): Observable<DeleteResult> {
-    return this.teacherService.deleteTeacher(id);
+  @ApiOkResponse({ description: "OK" })
+  @ApiNotFoundResponse({ description: "This teacher not found!" })
+  @ApiBadRequestResponse({
+    description: "Bad Request",
+    schema: {
+      type: "String",
+      enum: ["firstName must be a string", "lastName must be a string"],
+    },
+  })
+  async deleteTeacher(@Param("id") id: number): Promise<DeleteResult> {
+    const teacher = await this.teacherService.getTeacher(id);
+
+    if (!teacher) {
+      throw new NotFoundException("This teacher not found!");
+    }
+
+    return await this.teacherService.deleteTeacher(id);
   }
 }
