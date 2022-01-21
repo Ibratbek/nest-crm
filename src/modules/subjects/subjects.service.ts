@@ -1,6 +1,5 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { from, Observable } from "rxjs";
 import { Subject } from "src/Entities/Subjects";
 import { DeleteResult, Repository, UpdateResult } from "typeorm";
 import { CreateSubjectDTO, SubjectDTO, UpdateSubjectDTO } from "./dto";
@@ -12,23 +11,26 @@ export class SubjectsService {
     private readonly subjectRepository: Repository<Subject>
   ) {}
 
-  createSubject(body: CreateSubjectDTO): Observable<SubjectDTO> {
-    return from(this.subjectRepository.save(body));
+  async createSubject(body: CreateSubjectDTO): Promise<SubjectDTO> {
+    return await this.subjectRepository.save(body);
   }
 
-  getAll(): Observable<SubjectDTO[]> {
-    return from(this.subjectRepository.find());
+  async getAll(): Promise<SubjectDTO[]> {
+    return await this.subjectRepository.find();
   }
 
-  getSubjectById(id: number): Observable<SubjectDTO> {
-    return from(this.subjectRepository.findOne(id));
+  async getSubjectById(id: number): Promise<SubjectDTO> {
+    return await this.subjectRepository.findOne(id);
   }
 
-  updateSubject(id: number, body: UpdateSubjectDTO): Observable<UpdateResult> {
-    return from(this.subjectRepository.update(id, body));
+  async updateSubject(
+    id: number,
+    body: UpdateSubjectDTO
+  ): Promise<UpdateResult> {
+    return await this.subjectRepository.update(id, body);
   }
 
-  deleteSubject(id: number): Observable<DeleteResult> {
-    return from(this.subjectRepository.delete(id));
+  async deleteSubject(id: number): Promise<DeleteResult> {
+    return this.subjectRepository.delete(id);
   }
 }

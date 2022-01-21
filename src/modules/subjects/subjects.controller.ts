@@ -3,47 +3,69 @@ import {
   Controller,
   Delete,
   Get,
+  NotFoundException,
   Param,
   Post,
   Put,
 } from "@nestjs/common";
-import { ApiTags } from "@nestjs/swagger";
-import { Observable } from "rxjs";
+import { ApiNotFoundResponse, ApiOkResponse, ApiTags } from "@nestjs/swagger";
 import { DeleteResult, UpdateResult } from "typeorm";
 import { CreateSubjectDTO, SubjectDTO, UpdateSubjectDTO } from "./dto";
 import { SubjectsService } from "./subjects.service";
 
 @Controller("subjects")
 @ApiTags("Subjects")
-
 export class SubjectsController {
   constructor(private readonly subjectService: SubjectsService) {}
 
   @Post()
-  createSubject(@Body() body: CreateSubjectDTO): Observable<SubjectDTO> {
-    return this.subjectService.createSubject(body);
+  @ApiOkResponse({ description: "OK" })
+  async createSubject(@Body() body: CreateSubjectDTO): Promise<SubjectDTO> {
+    return await this.subjectService.createSubject(body);
   }
 
   @Get()
-  getSubjects(): Observable<SubjectDTO[]> {
-    return this.subjectService.getAll();
+  @ApiOkResponse({ description: "OK" })
+  async getSubjects(): Promise<SubjectDTO[]> {
+    return await this.subjectService.getAll();
   }
 
   @Get("/:id")
-  getSubjectById(@Param() id: number): Observable<SubjectDTO> {
-    return this.subjectService.getSubjectById(id);
+  @ApiOkResponse({ description: "OK" })
+  @ApiNotFoundResponse({ description: "This subject not found!" })
+  async getSubjectById(@Param("id") id: number): Promise<SubjectDTO> {
+    const subject = await this.subjectService.getSubjectById(id);
+    if (!subject) {
+      throw new NotFoundException("This subject not found!");
+    }
+
+    return subject;
   }
 
   @Put("/:id")
-  updateSubject(
-    @Param() id: number,
+  @ApiOkResponse({ description: "OK" })
+  @ApiNotFoundResponse({ description: "This subject not found!" })
+  async updateSubject(
+    @Param("id") id: number,
     @Body() body: UpdateSubjectDTO
-  ): Observable<UpdateResult> {
-    return this.subjectService.updateSubject(id, body);
+  ): Promise<UpdateResult> {
+    const subject = await this.subjectService.getSubjectById(id);
+    if (!subject) {
+      throw new NotFoundException("This subject not found!");
+    }
+
+    return await this.subjectService.updateSubject(id, body);
   }
 
   @Delete("/:id")
-  deleteSubject(@Param() id: number): Observable<DeleteResult> {
-    return this.subjectService.deleteSubject(id);
+  @ApiOkResponse({ description: "OK" })
+  @ApiNotFoundResponse({ description: "This subject not found!" })
+  async deleteSubject(@Param("id") id: number): Promise<DeleteResult> {
+    const subject = await this.subjectService.getSubjectById(id);
+    if (!subject) {
+      throw new NotFoundException("This subject not found!");
+    }
+
+    return await this.subjectService.deleteSubject(id);
   }
 }
