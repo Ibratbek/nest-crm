@@ -14,6 +14,7 @@ import { SubjectsModule } from "./modules/subjects/subjects.module";
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
+      name: "default",
       type: "postgres",
       host: process.env.POSTGRES_HOST,
       port: parseInt(<string>process.env.POSTGRES_PORT),
@@ -21,7 +22,8 @@ import { SubjectsModule } from "./modules/subjects/subjects.module";
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
       autoLoadEntities: true,
-      synchronize: true,
+      synchronize: false,
+      logging: false,
     }),
     StudentsModule,
     GroupsModule,
