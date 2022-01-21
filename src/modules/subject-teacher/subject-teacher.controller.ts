@@ -8,7 +8,6 @@ import {
   Put,
 } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
-import { Observable } from "rxjs";
 import { DeleteResult, UpdateResult } from "typeorm";
 import {
   CreateSubjectTeacherDTO,
@@ -23,32 +22,32 @@ export class SubjectTeacherController {
   constructor(private readonly subjectTeacherService: SubjectTeacherService) {}
 
   @Post()
-  createSubjectTeacher(
+  async createSubjectTeacher(
     @Body() body: CreateSubjectTeacherDTO
-  ): Observable<SubjectTeacherDTO> {
-    return this.subjectTeacherService.insertSubjectTeacher(body);
+  ): Promise<SubjectTeacherDTO> {
+    return await this.subjectTeacherService.insertSubjectTeacher(body);
   }
 
   @Get()
-  getSubjectTeachers(): Observable<SubjectTeacherDTO[]> {
-    return this.subjectTeacherService.getSubjectTeachers();
+  async getSubjectTeachers(): Promise<SubjectTeacherDTO[]> {
+    return await this.subjectTeacherService.getSubjectTeachers();
   }
 
   @Get("/:id")
-  getSubjectTeacher(@Param("id") id: number): Observable<SubjectTeacherDTO> {
-    return this.subjectTeacherService.getSubjectTeacher(id);
+  async getSubjectTeacher(@Param("id") id: number): Promise<SubjectTeacherDTO> {
+    return await this.subjectTeacherService.getSubjectTeacher(id);
   }
 
   @Put("/:id")
-  updateSubjectTeacher(
+  async updateSubjectTeacher(
     @Param("id") id: number,
     @Body() body: UpdateSubjectTeacherDTO
-  ): Observable<UpdateResult> {
-    return this.subjectTeacherService.updateSubjectTeacher(id, body);
+  ): Promise<UpdateResult> {
+    return await this.subjectTeacherService.updateSubjectTeacher(id, body);
   }
 
   @Delete("/:id")
-  deleteSubjectTeacher(@Param("id") id: number): Observable<DeleteResult> {
-    return this.subjectTeacherService.deleteSubjectTeacher(id);
+  async deleteSubjectTeacher(@Param("id") id: number): Promise<DeleteResult> {
+    return await this.subjectTeacherService.deleteSubjectTeacher(id);
   }
 }

@@ -8,7 +8,6 @@ import {
   Put,
 } from "@nestjs/common";
 import { ApiOkResponse, ApiTags } from "@nestjs/swagger";
-import { Observable } from "rxjs";
 import { Student } from "src/Entities/Students";
 import { DeleteResult, UpdateResult } from "typeorm";
 import { CreateStudentDTO, StudentDTO, UpdateStudentDTO } from "./dto";
@@ -21,30 +20,31 @@ export class StudentsController {
 
   @Post()
   @ApiOkResponse({ description: "succesfully added" })
-  createStudent(@Body() body: CreateStudentDTO): Observable<StudentDTO> {
-    return this.studentService.insertStudent(body);
+  async createStudent(@Body() body: CreateStudentDTO): Promise<StudentDTO> {
+    const student = await this.studentService.insertStudent(body);
+    return await student;
   }
 
   @Get()
-  @ApiOkResponse({ description: "succesfully get" })
-  getStudents(): Observable<Student[]> {
-    return this.studentService.getStudents();
+  @ApiOkResponse({ description: "OK" })
+  async getStudents(): Promise<Student[]> {
+    return await this.studentService.getStudents();
   }
 
   @Get("/:id")
-  getStudent(@Param("id") id: number): Observable<Student> {
-    return this.studentService.getStudent(id);
+  async getStudent(@Param("id") id: number): Promise<Student> {
+    return await this.studentService.getStudent(id);
   }
 
   @Put("/:id")
-  updateStudent(
+  async updateStudent(
     @Body() body: UpdateStudentDTO,
-    @Param() id: number
-  ): Observable<UpdateResult> {
-    return this.studentService.updateStudent(body, id);
+    @Param("id") id: number
+  ): Promise<UpdateResult> {
+    return await this.studentService.updateStudent(body, id);
   }
   @Delete("/:id")
-  deleteStudent(@Param() id: number): Observable<DeleteResult> {
-    return this.studentService.deleteStudent(id);
+  async deleteStudent(@Param("id") id: number): Promise<DeleteResult> {
+    return await this.studentService.deleteStudent(id);
   }
 }
