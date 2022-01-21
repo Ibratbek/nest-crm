@@ -9,6 +9,8 @@ export default async function groupsSeed() {
 
     const groupsRepo = getRepository(Group);
 
+    await groupsRepo.query("delete from groups");
+
     for (let i = 0; i < 5; i++) {
       const group = groupsRepo.create({
         name: chance.name(),

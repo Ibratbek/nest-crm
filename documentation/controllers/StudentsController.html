@@ -84,6 +84,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#createStudent" >createStudent</a>
                             </li>
                             <li>
@@ -121,6 +122,7 @@
                 <td class="col-md-4">
                     <a name="createStudent"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>createStudent</b></span>
                         <a href="#createStudent"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -128,7 +130,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createStudent(body: <a href="../classes/CreateStudentDTO.html" target="_self">CreateStudentDTO</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createStudent(body: <a href="../classes/CreateStudentDTO.html" target="_self">CreateStudentDTO</a>)</code>
                 </td>
             </tr>
 
@@ -136,14 +139,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post()<br />@ApiOkResponse({description: &#x27;succesfully added&#x27;})<br /></code>
+                    <code>@Post()<br />@ApiOkResponse({description: &#x27;Created&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Bad Request&#x27;, schema: undefined})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/modules/students/students.controller.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/modules/students/students.controller.ts:31</a></div>
                 </td>
             </tr>
 
@@ -181,7 +184,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/StudentDTO.html" target="_self" >Observable&lt;StudentDTO&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/StudentDTO.html" target="_self" >Promise&lt;StudentDTO&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -212,14 +215,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Delete(&#x27;/:id&#x27;)<br /></code>
+                    <code>@Delete(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/modules/students/students.controller.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/modules/students/students.controller.ts:58</a></div>
                 </td>
             </tr>
 
@@ -288,14 +291,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;/:id&#x27;)<br /></code>
+                    <code>@Get(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/modules/students/students.controller.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/modules/students/students.controller.ts:43</a></div>
                 </td>
             </tr>
 
@@ -364,14 +367,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get()<br />@ApiOkResponse({description: &#x27;succesfully get&#x27;})<br /></code>
+                    <code>@Get()<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/modules/students/students.controller.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/modules/students/students.controller.ts:37</a></div>
                 </td>
             </tr>
 
@@ -408,14 +411,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Put(&#x27;/:id&#x27;)<br /></code>
+                    <code>@Put(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/modules/students/students.controller.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/modules/students/students.controller.ts:49</a></div>
                 </td>
             </tr>
 
@@ -488,7 +491,7 @@
   Post,
   Put,
 } from &quot;@nestjs/common&quot;;
-import { ApiOkResponse, ApiTags } from &quot;@nestjs/swagger&quot;;
+import { ApiBadRequestResponse, ApiOkResponse, ApiTags } from &quot;@nestjs/swagger&quot;;
 import { Observable } from &quot;rxjs&quot;;
 import { Student } from &quot;src/Entities/Students&quot;;
 import { DeleteResult, UpdateResult } from &quot;typeorm&quot;;
@@ -501,30 +504,41 @@ export class StudentsController {
   constructor(private readonly studentService: StudentsService) {}
 
   @Post()
-  @ApiOkResponse({ description: &quot;succesfully added&quot; })
-  createStudent(@Body() body: CreateStudentDTO): Observable&lt;StudentDTO&gt; {
-    return this.studentService.insertStudent(body);
+  @ApiOkResponse({ description: &quot;Created&quot; })
+  @ApiBadRequestResponse({
+    description: &quot;Bad Request&quot;,
+    schema: {
+      type: &quot;String&quot;,
+      enum: [&quot;Name must be a string&quot;],
+    },
+  })
+  async createStudent(@Body() body: CreateStudentDTO): Promise&lt;StudentDTO&gt; {
+    return await this.studentService.insertStudent(body);
   }
 
   @Get()
-  @ApiOkResponse({ description: &quot;succesfully get&quot; })
+  @ApiOkResponse({ description: &quot;OK&quot; })
   getStudents(): Observable&lt;Student[]&gt; {
     return this.studentService.getStudents();
   }
 
   @Get(&quot;/:id&quot;)
+  @ApiOkResponse({ description: &quot;OK&quot; })
   getStudent(@Param(&quot;id&quot;) id: number): Observable&lt;Student&gt; {
     return this.studentService.getStudent(id);
   }
 
   @Put(&quot;/:id&quot;)
+  @ApiOkResponse({ description: &quot;OK&quot; })
   updateStudent(
     @Body() body: UpdateStudentDTO,
     @Param() id: number
   ): Observable&lt;UpdateResult&gt; {
     return this.studentService.updateStudent(body, id);
   }
+
   @Delete(&quot;/:id&quot;)
+  @ApiOkResponse({ description: &quot;OK&quot; })
   deleteStudent(@Param() id: number): Observable&lt;DeleteResult&gt; {
     return this.studentService.deleteStudent(id);
   }

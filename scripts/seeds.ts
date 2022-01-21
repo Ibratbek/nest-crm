@@ -1,5 +1,6 @@
 import { createConnection } from "typeorm";
 import groupsSeed from "../src/seeds/groups";
+import teacherSeed from "../src/seeds/teachers";
 
 (async () => {
   try {
@@ -10,6 +11,11 @@ import groupsSeed from "../src/seeds/groups";
   }
   try {
     await groupsSeed();
+  } catch (error) {
+    console.log(error);
+  }
+  try {
+    await teacherSeed();
   } catch (error) {
     console.log(error);
   }
