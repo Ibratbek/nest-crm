@@ -146,8 +146,11 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Module } from &quot;@nestjs/common&quot;;
 import { SubjectTeacherService } from &quot;./subject-teacher.service&quot;;
 import { SubjectTeacherController } from &quot;./subject-teacher.controller&quot;;
+import { TypeOrmModule } from &quot;@nestjs/typeorm&quot;;
+import { SubjectTeacher } from &quot;src/Entities/SubjectTeacher&quot;;
 
 @Module({
+  imports: [TypeOrmModule.forFeature([SubjectTeacher])],
   providers: [SubjectTeacherService],
   controllers: [SubjectTeacherController],
 })

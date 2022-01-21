@@ -79,18 +79,27 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#createGroup" >createGroup</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#deleteGroup" >deleteGroup</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getGroupById" >getGroupById</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getGroupByName" >getGroupByName</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getGroups" >getGroups</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#updateGroup" >updateGroup</a>
                             </li>
                         </ul>
@@ -116,7 +125,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/modules/groups/groups.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/modules/groups/groups.service.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -165,6 +174,7 @@
                 <td class="col-md-4">
                     <a name="createGroup"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>createGroup</b></span>
                         <a href="#createGroup"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -172,15 +182,16 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createGroup(name: <a href="../classes/CreateGroupDTO.html" target="_self">CreateGroupDTO</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createGroup(name: <a href="../classes/CreateGroupDTO.html" target="_self">CreateGroupDTO</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">src/modules/groups/groups.service.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">src/modules/groups/groups.service.ts:14</a></div>
                 </td>
             </tr>
 
@@ -218,7 +229,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/GroupDTO.html" target="_self" >Observable&lt;GroupDTO&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/GroupDTO.html" target="_self" >Promise&lt;GroupDTO&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -234,6 +245,7 @@
                 <td class="col-md-4">
                     <a name="deleteGroup"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>deleteGroup</b></span>
                         <a href="#deleteGroup"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -241,15 +253,16 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>deleteGroup(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteGroup(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/modules/groups/groups.service.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/modules/groups/groups.service.ts:30</a></div>
                 </td>
             </tr>
 
@@ -287,7 +300,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;DeleteResult&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;DeleteResult&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -303,6 +316,7 @@
                 <td class="col-md-4">
                     <a name="getGroupById"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>getGroupById</b></span>
                         <a href="#getGroupById"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -310,15 +324,16 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getGroupById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getGroupById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/modules/groups/groups.service.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/modules/groups/groups.service.ts:22</a></div>
                 </td>
             </tr>
 
@@ -356,7 +371,78 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/GroupDTO.html" target="_self" >Observable&lt;GroupDTO&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/GroupDTO.html" target="_self" >Promise&lt;GroupDTO&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getGroupByName"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getGroupByName</b></span>
+                        <a href="#getGroupByName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getGroupByName(name: <a href="../classes/CreateGroupDTO.html" target="_self">CreateGroupDTO</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/modules/groups/groups.service.ts:34</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="../classes/CreateGroupDTO.html" target="_self" >CreateGroupDTO</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GroupDTO.html" target="_self" >Promise&lt;GroupDTO&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -372,6 +458,7 @@
                 <td class="col-md-4">
                     <a name="getGroups"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>getGroups</b></span>
                         <a href="#getGroups"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -379,15 +466,16 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getGroups()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getGroups()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/modules/groups/groups.service.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">src/modules/groups/groups.service.ts:18</a></div>
                 </td>
             </tr>
 
@@ -396,7 +484,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/GroupDTO.html" target="_self" >Observable&lt;GroupDTO[]&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/GroupDTO.html" target="_self" >Promise&lt;GroupDTO[]&gt;</a></code>
 
                     </div>
                 </td>
@@ -409,6 +497,7 @@
                 <td class="col-md-4">
                     <a name="updateGroup"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>updateGroup</b></span>
                         <a href="#updateGroup"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -416,15 +505,16 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>updateGroup(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, group: <a href="../classes/UpdateGroupDTO.html" target="_self">UpdateGroupDTO</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateGroup(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, group: <a href="../classes/UpdateGroupDTO.html" target="_self">UpdateGroupDTO</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/modules/groups/groups.service.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/modules/groups/groups.service.ts:26</a></div>
                 </td>
             </tr>
 
@@ -474,7 +564,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;UpdateResult&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;UpdateResult&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -492,7 +582,6 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &quot;@nestjs/common&quot;;
 import { InjectRepository } from &quot;@nestjs/typeorm&quot;;
-import { from, Observable } from &quot;rxjs&quot;;
 import { Group } from &quot;src/Entities/Groups&quot;;
 import { DeleteResult, Repository, UpdateResult } from &quot;typeorm&quot;;
 import { CreateGroupDTO, GroupDTO, UpdateGroupDTO } from &quot;./dto&quot;;
@@ -504,24 +593,28 @@ export class GroupsService {
     private readonly groupsRepository: Repository&lt;Group&gt;
   ) {}
 
-  createGroup(name: CreateGroupDTO): Observable&lt;GroupDTO&gt; {
-    return from(this.groupsRepository.save(name));
+  async createGroup(name: CreateGroupDTO): Promise&lt;GroupDTO&gt; {
+    return await this.groupsRepository.save(name);
   }
 
-  getGroups(): Observable&lt;GroupDTO[]&gt; {
-    return from(this.groupsRepository.find());
+  async getGroups(): Promise&lt;GroupDTO[]&gt; {
+    return await this.groupsRepository.find();
   }
 
-  getGroupById(id: number): Observable&lt;GroupDTO&gt; {
-    return from(this.groupsRepository.findOne(id));
+  async getGroupById(id: number): Promise&lt;GroupDTO&gt; {
+    return await this.groupsRepository.findOne(id);
   }
 
-  updateGroup(id: number, group: UpdateGroupDTO): Observable&lt;UpdateResult&gt; {
-    return from(this.groupsRepository.update(id, group));
+  async updateGroup(id: number, group: UpdateGroupDTO): Promise&lt;UpdateResult&gt; {
+    return await this.groupsRepository.update(id, group);
   }
 
-  deleteGroup(id: number): Observable&lt;DeleteResult&gt; {
-    return from(this.groupsRepository.delete(id));
+  async deleteGroup(id: number): Promise&lt;DeleteResult&gt; {
+    return await this.groupsRepository.delete(id);
+  }
+
+  async getGroupByName(name: CreateGroupDTO): Promise&lt;GroupDTO&gt; {
+    return await this.groupsRepository.findOne(name);
   }
 }
 </code></pre>

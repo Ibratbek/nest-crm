@@ -142,8 +142,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">src/modules/marks/marks.controller.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/modules/marks/marks.controller.ts:22</a></div>
                 </td>
             </tr>
 
@@ -218,8 +218,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">src/modules/marks/marks.controller.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/modules/marks/marks.controller.ts:45</a></div>
                 </td>
             </tr>
 
@@ -294,8 +294,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">src/modules/marks/marks.controller.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/modules/marks/marks.controller.ts:27</a></div>
                 </td>
             </tr>
 
@@ -338,8 +338,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/modules/marks/marks.controller.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/modules/marks/marks.controller.ts:32</a></div>
                 </td>
             </tr>
 
@@ -414,8 +414,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/modules/marks/marks.controller.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/modules/marks/marks.controller.ts:37</a></div>
                 </td>
             </tr>
 
@@ -488,12 +488,14 @@
   Post,
   Put,
 } from &quot;@nestjs/common&quot;;
+import { ApiTags } from &quot;@nestjs/swagger&quot;;
 import { Observable } from &quot;rxjs&quot;;
 import { DeleteResult, UpdateResult } from &quot;typeorm&quot;;
 import { CreateMarkDTO, MarkDTO, UpdateMarkDTO } from &quot;./dto&quot;;
 import { MarksService } from &quot;./marks.service&quot;;
 
 @Controller(&quot;marks&quot;)
+@ApiTags(&quot;Marks&quot;)
 export class MarksController {
   constructor(private readonly marksService: MarksService) {}
 

@@ -161,13 +161,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @OneToOne(undefined, group &#x3D;&gt; group.id)<br />@JoinColumn({name: &#x27;group_id&#x27;})<br />
+                            @ManyToOne(undefined, group &#x3D;&gt; group.id)<br />@JoinColumn({name: &#x27;group_id&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/Entities/Students.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/Entities/Students.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -253,7 +253,7 @@
   Column,
   Entity,
   JoinColumn,
-  OneToOne,
+  ManyToOne,
   PrimaryGeneratedColumn,
 } from &quot;typeorm&quot;;
 import { Group } from &quot;./Groups&quot;;
@@ -269,8 +269,7 @@ export class Student {
   @Column()
   last_name: string;
 
-  // TODO ManyToOne&#x27;ga o&#x27;zgartirish kerak
-  @OneToOne(() &#x3D;&gt; Group, (group) &#x3D;&gt; group.id)
+  @ManyToOne(() &#x3D;&gt; Group, (group) &#x3D;&gt; group.id)
   @JoinColumn({ name: &quot;group_id&quot; })
   group: Group;
 }

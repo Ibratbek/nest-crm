@@ -84,18 +84,23 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#createGroup" >createGroup</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#deleteGroup" >deleteGroup</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getGroupById" >getGroupById</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getGroups" >getGroups</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#updateGroup" >updateGroup</a>
                             </li>
                         </ul>
@@ -121,6 +126,7 @@
                 <td class="col-md-4">
                     <a name="createGroup"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>createGroup</b></span>
                         <a href="#createGroup"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -128,7 +134,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createGroup(name: <a href="../classes/CreateGroupDTO.html" target="_self">CreateGroupDTO</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createGroup(name: <a href="../classes/CreateGroupDTO.html" target="_self">CreateGroupDTO</a>)</code>
                 </td>
             </tr>
 
@@ -136,14 +143,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post()<br />@ApiCreatedResponse({description: &#x27;Create group&#x27;})<br /></code>
+                    <code>@Post()<br />@ApiCreatedResponse({description: &#x27;Created&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Bad Request&#x27;, schema: undefined})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/modules/groups/groups.controller.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/modules/groups/groups.controller.ts:37</a></div>
                 </td>
             </tr>
 
@@ -181,7 +188,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/GroupDTO.html" target="_self" >Observable&lt;GroupDTO&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/GroupDTO.html" target="_self" >Promise&lt;GroupDTO&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -197,6 +204,7 @@
                 <td class="col-md-4">
                     <a name="deleteGroup"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>deleteGroup</b></span>
                         <a href="#deleteGroup"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -204,7 +212,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>deleteGroup(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteGroup(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -212,14 +221,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Delete(&#x27;:id&#x27;)<br />@ApiOkResponse({description: &#x27;Successfully deleted!&#x27;})<br /></code>
+                    <code>@Delete(&#x27;:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br />@ApiNotFoundResponse({description: &#x27;This group not found!&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/modules/groups/groups.controller.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">src/modules/groups/groups.controller.ts:92</a></div>
                 </td>
             </tr>
 
@@ -257,7 +266,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;DeleteResult&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -273,6 +282,7 @@
                 <td class="col-md-4">
                     <a name="getGroupById"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>getGroupById</b></span>
                         <a href="#getGroupById"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -280,7 +290,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getGroupById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getGroupById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -288,14 +299,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;:id&#x27;)<br />@ApiOkResponse({description: &#x27;One group&#x27;})<br /></code>
+                    <code>@Get(&#x27;:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br />@ApiNotFoundResponse({description: &#x27;This group not found!&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/modules/groups/groups.controller.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/modules/groups/groups.controller.ts:56</a></div>
                 </td>
             </tr>
 
@@ -333,7 +344,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/GroupDTO.html" target="_self" >Observable&lt;GroupDTO&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/GroupDTO.html" target="_self" >Promise&lt;GroupDTO&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -349,6 +360,7 @@
                 <td class="col-md-4">
                     <a name="getGroups"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>getGroups</b></span>
                         <a href="#getGroups"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -356,7 +368,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getGroups()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getGroups()</code>
                 </td>
             </tr>
 
@@ -364,14 +377,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get()<br />@ApiOkResponse({description: &#x27;All groups of crm&#x27;})<br /></code>
+                    <code>@Get()<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/modules/groups/groups.controller.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/modules/groups/groups.controller.ts:49</a></div>
                 </td>
             </tr>
 
@@ -380,7 +393,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/GroupDTO.html" target="_self" >Observable&lt;GroupDTO[]&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/GroupDTO.html" target="_self" >Promise&lt;GroupDTO[]&gt;</a></code>
 
                     </div>
                 </td>
@@ -393,6 +406,7 @@
                 <td class="col-md-4">
                     <a name="updateGroup"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>updateGroup</b></span>
                         <a href="#updateGroup"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -400,7 +414,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>updateGroup(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, name: <a href="../classes/UpdateGroupDTO.html" target="_self">UpdateGroupDTO</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateGroup(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, name: <a href="../classes/UpdateGroupDTO.html" target="_self">UpdateGroupDTO</a>)</code>
                 </td>
             </tr>
 
@@ -408,14 +423,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Put(&#x27;:id&#x27;)<br />@ApiOkResponse({description: &#x27;Successfully updated!&#x27;})<br /></code>
+                    <code>@Put(&#x27;:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br />@ApiNotFoundResponse({description: &#x27;This group not found!&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Bad Request&#x27;, schema: undefined})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/modules/groups/groups.controller.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">src/modules/groups/groups.controller.ts:76</a></div>
                 </td>
             </tr>
 
@@ -465,7 +480,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;UpdateResult&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;UpdateResult&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -480,17 +495,24 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
   Get,
+  NotFoundException,
   Param,
   Post,
   Put,
 } from &quot;@nestjs/common&quot;;
-import { ApiCreatedResponse, ApiOkResponse, ApiTags } from &quot;@nestjs/swagger&quot;;
-import { Observable } from &quot;rxjs&quot;;
-import { UpdateResult } from &quot;typeorm&quot;;
+import {
+  ApiBadRequestResponse,
+  ApiCreatedResponse,
+  ApiNotFoundResponse,
+  ApiOkResponse,
+  ApiTags,
+} from &quot;@nestjs/swagger&quot;;
+import { DeleteResult, UpdateResult } from &quot;typeorm&quot;;
 import { CreateGroupDTO, GroupDTO, UpdateGroupDTO } from &quot;./dto&quot;;
 import { GroupsService } from &quot;./groups.service&quot;;
 
@@ -500,35 +522,76 @@ export class GroupsController {
   constructor(private readonly groupsService: GroupsService) {}
 
   @Post()
-  @ApiCreatedResponse({ description: &quot;Create group&quot; })
-  createGroup(@Body() name: CreateGroupDTO): Observable&lt;GroupDTO&gt; {
-    return this.groupsService.createGroup(name);
+  @ApiCreatedResponse({ description: &quot;Created&quot; })
+  @ApiBadRequestResponse({
+    description: &quot;Bad Request&quot;,
+    schema: {
+      type: &quot;String&quot;,
+      enum: [&quot;Name must be a string&quot;, &quot;This group already exists&quot;],
+    },
+  })
+  async createGroup(@Body() name: CreateGroupDTO): Promise&lt;GroupDTO&gt; {
+    const group &#x3D; await this.groupsService.getGroupByName(name);
+
+    if (group) {
+      throw new BadRequestException(&quot;This group already exists&quot;);
+    }
+
+    return await this.groupsService.createGroup(name);
   }
 
   @Get()
-  @ApiOkResponse({ description: &quot;All groups of crm&quot; })
-  getGroups(): Observable&lt;GroupDTO[]&gt; {
-    return this.groupsService.getGroups();
+  @ApiOkResponse({ description: &quot;OK&quot; })
+  async getGroups(): Promise&lt;GroupDTO[]&gt; {
+    return await this.groupsService.getGroups();
   }
 
   @Get(&quot;:id&quot;)
-  @ApiOkResponse({ description: &quot;One group&quot; })
-  getGroupById(@Param() id: number): Observable&lt;GroupDTO&gt; {
-    return this.groupsService.getGroupById(id);
+  @ApiOkResponse({ description: &quot;OK&quot; })
+  @ApiNotFoundResponse({ description: &quot;This group not found!&quot; })
+  async getGroupById(@Param(&quot;id&quot;) id: number): Promise&lt;GroupDTO&gt; {
+    const group &#x3D; await this.groupsService.getGroupById(id);
+
+    if (group &#x3D;&#x3D;&#x3D; undefined) {
+      throw new NotFoundException(&quot;This group not found!&quot;);
+    }
+
+    return group;
   }
 
   @Put(&quot;:id&quot;)
-  @ApiOkResponse({ description: &quot;Successfully updated!&quot; })
-  updateGroup(
-    @Param() id: number,
+  @ApiOkResponse({ description: &quot;OK&quot; })
+  @ApiNotFoundResponse({ description: &quot;This group not found!&quot; })
+  @ApiBadRequestResponse({
+    description: &quot;Bad Request&quot;,
+    schema: {
+      type: &quot;String&quot;,
+      enum: [&quot;Name must be a string&quot;],
+    },
+  })
+  async updateGroup(
+    @Param(&quot;id&quot;) id: number,
     @Body() name: UpdateGroupDTO
-  ): Observable&lt;UpdateResult&gt; {
+  ): Promise&lt;UpdateResult&gt; {
+    const group &#x3D; await this.groupsService.getGroupById(id);
+
+    if (group &#x3D;&#x3D;&#x3D; undefined) {
+      throw new NotFoundException(&quot;This group not found!&quot;);
+    }
+
     return this.groupsService.updateGroup(id, name);
   }
 
   @Delete(&quot;:id&quot;)
-  @ApiOkResponse({ description: &quot;Successfully deleted!&quot; })
-  deleteGroup(@Param() id: number) {
+  @ApiOkResponse({ description: &quot;OK&quot; })
+  @ApiNotFoundResponse({ description: &quot;This group not found!&quot; })
+  async deleteGroup(@Param(&quot;id&quot;) id: number): Promise&lt;DeleteResult&gt; {
+    const group &#x3D; await this.groupsService.getGroupById(id);
+
+    if (group &#x3D;&#x3D;&#x3D; undefined) {
+      throw new NotFoundException(&quot;This group not found!&quot;);
+    }
+
     return this.groupsService.deleteGroup(id);
   }
 }

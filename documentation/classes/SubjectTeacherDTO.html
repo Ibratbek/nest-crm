@@ -28,7 +28,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content entity">
+               <div class="content class">
                    <div class="content-data">
 
 
@@ -36,9 +36,15 @@
 
 
 
+
+
+
+
+
+
 <ol class="breadcrumb">
-  <li>Entities</li>
-  <li >SubjectTeacher</li>
+  <li>Classes</li>
+  <li >SubjectTeacherDTO</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,8 +62,10 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/Entities/SubjectTeacher.ts</code>
+            <code>src/modules/subject-teacher/dto.ts</code>
         </p>
+
+
 
 
 
@@ -81,9 +89,6 @@
                                 <a href="#id" >id</a>
                             </li>
                             <li>
-                                <a href="#subject_teacher" >subject_teacher</a>
-                            </li>
-                            <li>
                                 <a href="#teacher" >teacher</a>
                             </li>
                         </ul>
@@ -98,6 +103,7 @@
         </tbody>
     </table>
 </section>
+
 
             <section>
     
@@ -117,22 +123,13 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../entitys/Group.html" target="_self" >Group</a></code>
+                        <i>Type : </i>        <code><a href="../classes/GroupDTO.html" target="_self" >GroupDTO</a></code>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @ManyToOne(undefined, group &#x3D;&gt; group.id)<br />@JoinColumn({name: &#x27;group_id&#x27;})<br />
-                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/Entities/SubjectTeacher.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/modules/subject-teacher/dto.ts:12</a></div>
                         </td>
                     </tr>
 
@@ -156,44 +153,9 @@
 
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @PrimaryGeneratedColumn()<br />
-                        </code>
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/Entities/SubjectTeacher.ts:15</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="subject_teacher"></a>
-                    <span class="name">
-                        <span ><b>subject_teacher</b></span>
-                        <a href="#subject_teacher"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>literal type</code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/Entities/SubjectTeacher.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/modules/subject-teacher/dto.ts:10</a></div>
                         </td>
                     </tr>
 
@@ -213,22 +175,13 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../entitys/Teacher.html" target="_self" >Teacher</a></code>
+                        <i>Type : </i>        <code><a href="../classes/TeacherDTO.html" target="_self" >TeacherDTO</a></code>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @OneToOne(undefined, teacher &#x3D;&gt; teacher.id)<br />@JoinColumn({name: &#x27;teacher_id&#x27;})<br />
-                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/Entities/SubjectTeacher.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/modules/subject-teacher/dto.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -236,44 +189,38 @@
         </tbody>
     </table>
 </section>
+
+
+
+
+
+
+
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  OneToMany,
-  OneToOne,
-  PrimaryGeneratedColumn,
-} from &quot;typeorm&quot;;
-import { Group } from &quot;./Groups&quot;;
-import { Teacher } from &quot;./Teachers&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { GroupDTO } from &quot;../groups/dto&quot;;
+import { TeacherDTO } from &quot;../teachers/dto&quot;;
 
-@Entity(&quot;subject_teacher&quot;)
-export class SubjectTeacher {
-  @PrimaryGeneratedColumn()
+export class CreateSubjectTeacherDTO {
+  teacherId: number;
+  groupId: number;
+}
+
+export class SubjectTeacherDTO {
   id: number;
+  teacher: TeacherDTO;
+  group: GroupDTO;
+}
 
-  @ManyToOne(() &#x3D;&gt; Group, (group) &#x3D;&gt; group.id)
-  @JoinColumn({ name: &quot;group_id&quot; })
-  group: Group;
-
-  @OneToOne(() &#x3D;&gt; Teacher, (teacher) &#x3D;&gt; teacher.id)
-  @JoinColumn({ name: &quot;teacher_id&quot; })
-  teacher: Teacher;
-  subject_teacher: { id: number };
+export class UpdateSubjectTeacherDTO {
+  teacherId: number;
+  groupId: number;
 }
 </code></pre>
     </div>
 </div>
-
-
-
-
-
-
 
 
 
@@ -307,8 +254,8 @@ export class SubjectTeacher {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'entity';
-            var COMPODOC_CURRENT_PAGE_URL = 'SubjectTeacher.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'SubjectTeacherDTO.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
