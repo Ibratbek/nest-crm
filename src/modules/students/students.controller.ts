@@ -7,12 +7,7 @@ import {
   Post,
   Put,
 } from "@nestjs/common";
-<<<<<<< HEAD
 import { ApiBadRequestResponse, ApiOkResponse, ApiTags } from "@nestjs/swagger";
-=======
-import { ApiBadRequestResponse, ApiOkResponse, ApiTags } from "@nestjs/swagger";
-import { Observable } from "rxjs";
->>>>>>> 6f7b4e2743cbd83f9fe1620dc893155f81d80cc4
 import { Student } from "src/Entities/Students";
 import { DeleteResult, UpdateResult } from "typeorm";
 import { CreateStudentDTO, StudentDTO, UpdateStudentDTO } from "./dto";
