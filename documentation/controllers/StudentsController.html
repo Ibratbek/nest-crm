@@ -88,15 +88,19 @@
                                 <a href="#createStudent" >createStudent</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#deleteStudent" >deleteStudent</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getStudent" >getStudent</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getStudents" >getStudents</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#updateStudent" >updateStudent</a>
                             </li>
                         </ul>
@@ -145,8 +149,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/modules/students/students.controller.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/modules/students/students.controller.ts:37</a></div>
                 </td>
             </tr>
 
@@ -200,6 +204,7 @@
                 <td class="col-md-4">
                     <a name="deleteStudent"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>deleteStudent</b></span>
                         <a href="#deleteStudent"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -207,7 +212,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>deleteStudent(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteStudent(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -215,14 +221,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Delete(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br /></code>
+                    <code>@Delete(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br />@ApiNotFoundResponse({description: &#x27;This student not found!&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">src/modules/students/students.controller.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">src/modules/students/students.controller.ts:103</a></div>
                 </td>
             </tr>
 
@@ -260,7 +266,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;DeleteResult&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;DeleteResult&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -276,6 +282,7 @@
                 <td class="col-md-4">
                     <a name="getStudent"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>getStudent</b></span>
                         <a href="#getStudent"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -283,7 +290,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getStudent(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getStudent(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -291,14 +299,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br /></code>
+                    <code>@Get(&#x27;/:id&#x27;)<br />@ApiNotFoundResponse({description: &#x27;This student not found!&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">src/modules/students/students.controller.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/modules/students/students.controller.ts:49</a></div>
                 </td>
             </tr>
 
@@ -336,7 +344,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/Student.html" target="_self" >Observable&lt;Student&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../entitys/Student.html" target="_self" >Promise&lt;Student&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -352,6 +360,7 @@
                 <td class="col-md-4">
                     <a name="getStudents"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>getStudents</b></span>
                         <a href="#getStudents"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -359,7 +368,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getStudents()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getStudents()</code>
                 </td>
             </tr>
 
@@ -373,8 +383,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">src/modules/students/students.controller.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/modules/students/students.controller.ts:43</a></div>
                 </td>
             </tr>
 
@@ -383,7 +393,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/Student.html" target="_self" >Observable&lt;Student[]&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../entitys/Student.html" target="_self" >Promise&lt;Student[]&gt;</a></code>
 
                     </div>
                 </td>
@@ -396,6 +406,7 @@
                 <td class="col-md-4">
                     <a name="updateStudent"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>updateStudent</b></span>
                         <a href="#updateStudent"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -403,7 +414,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>updateStudent(body: <a href="../classes/UpdateStudentDTO.html" target="_self">UpdateStudentDTO</a>, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateStudent(body: <a href="../classes/UpdateStudentDTO.html" target="_self">UpdateStudentDTO</a>, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -411,14 +423,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Put(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br /></code>
+                    <code>@Put(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Not Found!&#x27;, schema: undefined})<br />@ApiBadRequestResponse({description: &#x27;Bad Request&#x27;, schema: undefined})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">src/modules/students/students.controller.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">src/modules/students/students.controller.ts:79</a></div>
                 </td>
             </tr>
 
@@ -468,7 +480,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;UpdateResult&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;UpdateResult&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -487,14 +499,20 @@
   Controller,
   Delete,
   Get,
+  NotFoundException,
   Param,
   Post,
   Put,
 } from &quot;@nestjs/common&quot;;
-import { ApiBadRequestResponse, ApiOkResponse, ApiTags } from &quot;@nestjs/swagger&quot;;
-import { Observable } from &quot;rxjs&quot;;
+import {
+  ApiBadRequestResponse,
+  ApiNotFoundResponse,
+  ApiOkResponse,
+  ApiTags,
+} from &quot;@nestjs/swagger&quot;;
+import { Group } from &quot;src/Entities/Groups&quot;;
 import { Student } from &quot;src/Entities/Students&quot;;
-import { DeleteResult, UpdateResult } from &quot;typeorm&quot;;
+import { DeleteResult, getRepository, UpdateResult } from &quot;typeorm&quot;;
 import { CreateStudentDTO, StudentDTO, UpdateStudentDTO } from &quot;./dto&quot;;
 import { StudentsService } from &quot;./students.service&quot;;
 
@@ -518,29 +536,74 @@ export class StudentsController {
 
   @Get()
   @ApiOkResponse({ description: &quot;OK&quot; })
-  getStudents(): Observable&lt;Student[]&gt; {
-    return this.studentService.getStudents();
+  async getStudents(): Promise&lt;Student[]&gt; {
+    return await this.studentService.getStudents();
   }
 
   @Get(&quot;/:id&quot;)
-  @ApiOkResponse({ description: &quot;OK&quot; })
-  getStudent(@Param(&quot;id&quot;) id: number): Observable&lt;Student&gt; {
-    return this.studentService.getStudent(id);
+  @ApiNotFoundResponse({ description: &quot;This student not found!&quot; })
+  async getStudent(@Param(&quot;id&quot;) id: number): Promise&lt;Student&gt; {
+    const student &#x3D; await this.studentService.getStudent(id);
+
+    if (student &#x3D;&#x3D;&#x3D; undefined) {
+      throw new NotFoundException(&quot;This student not found!&quot;);
+    }
+
+    return await this.studentService.getStudent(id);
   }
 
   @Put(&quot;/:id&quot;)
   @ApiOkResponse({ description: &quot;OK&quot; })
-  updateStudent(
+  @ApiNotFoundResponse({
+    description: &quot;Not Found!&quot;,
+    schema: {
+      type: &quot;String&quot;,
+      enum: [&quot;This student not found!&quot;, &quot;This group not found!&quot;],
+    },
+  })
+  @ApiBadRequestResponse({
+    description: &quot;Bad Request&quot;,
+    schema: {
+      type: &quot;String&quot;,
+      enum: [
+        &quot;FirstName must be a string&quot;,
+        &quot;LastName must be a string&quot;,
+        &quot;GroupId must be a number&quot;,
+      ],
+    },
+  })
+  async updateStudent(
     @Body() body: UpdateStudentDTO,
-    @Param() id: number
-  ): Observable&lt;UpdateResult&gt; {
-    return this.studentService.updateStudent(body, id);
+    @Param(&quot;id&quot;) id: number
+  ): Promise&lt;UpdateResult&gt; {
+    const groupRepository &#x3D; getRepository(Group);
+
+    const group &#x3D; await groupRepository.findOne(body.groupId);
+
+    if (group &#x3D;&#x3D;&#x3D; undefined) {
+      throw new NotFoundException(&quot;This group not found!&quot;);
+    }
+
+    const student &#x3D; await this.studentService.getStudent(id);
+
+    if (student &#x3D;&#x3D;&#x3D; undefined) {
+      throw new NotFoundException(&quot;This student not found!&quot;);
+    }
+
+    return await this.studentService.updateStudent(body, id);
   }
 
   @Delete(&quot;/:id&quot;)
   @ApiOkResponse({ description: &quot;OK&quot; })
-  deleteStudent(@Param() id: number): Observable&lt;DeleteResult&gt; {
-    return this.studentService.deleteStudent(id);
+  @ApiNotFoundResponse({ description: &quot;This student not found!&quot; })
+  async deleteStudent(@Param(&quot;id&quot;) id: number): Promise&lt;DeleteResult&gt; {
+    const student &#x3D; await this.studentService.getStudent(id);
+
+    if (student &#x3D;&#x3D;&#x3D; undefined) {
+      throw new NotFoundException(&quot;This student not found!&quot;);
+    }
+
+    return await this.studentService.deleteStudent(id);
   }
 }
 </code></pre>

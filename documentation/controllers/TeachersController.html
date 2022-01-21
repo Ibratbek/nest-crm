@@ -84,19 +84,24 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#createTeacher" >createTeacher</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#deleteTeacher" >deleteTeacher</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getTeacher" >getTeacher</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getTeachers" >getTeachers</a>
                             </li>
                             <li>
-                                <a href="#updateTeacher" >updateTeacher</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#UpdateTeacher" >UpdateTeacher</a>
                             </li>
                         </ul>
                     </td>
@@ -121,6 +126,7 @@
                 <td class="col-md-4">
                     <a name="createTeacher"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>createTeacher</b></span>
                         <a href="#createTeacher"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -128,7 +134,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createTeacher(body: <a href="../classes/CreateTeacherDTO.html" target="_self">CreateTeacherDTO</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createTeacher(body: <a href="../classes/CreateTeacherDTO.html" target="_self">CreateTeacherDTO</a>)</code>
                 </td>
             </tr>
 
@@ -136,14 +143,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post()<br /></code>
+                    <code>@Post()<br />@ApiCreatedResponse({description: &#x27;Created&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Bad Request&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:50</a></div>
                 </td>
             </tr>
 
@@ -181,7 +188,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/Teacher.html" target="_self" >Observable&lt;Teacher&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../entitys/Teacher.html" target="_self" >Promise&lt;Teacher&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -197,6 +204,7 @@
                 <td class="col-md-4">
                     <a name="deleteTeacher"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>deleteTeacher</b></span>
                         <a href="#deleteTeacher"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -204,7 +212,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>deleteTeacher(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteTeacher(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -212,14 +221,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Delete(&#x27;/:id&#x27;)<br /></code>
+                    <code>@Delete(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br />@ApiNotFoundResponse({description: &#x27;This teacher not found!&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Bad Request&#x27;, schema: undefined})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:87</a></div>
                 </td>
             </tr>
 
@@ -257,7 +266,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;DeleteResult&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;DeleteResult&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -273,6 +282,7 @@
                 <td class="col-md-4">
                     <a name="getTeacher"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>getTeacher</b></span>
                         <a href="#getTeacher"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -280,7 +290,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getTeacher(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getTeacher(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -288,14 +299,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;:id&#x27;)<br /></code>
+                    <code>@Get(&#x27;:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br />@ApiNotFoundResponse({description: &#x27;This teacher not found!&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:36</a></div>
                 </td>
             </tr>
 
@@ -333,7 +344,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/Teacher.html" target="_self" >Observable&lt;Teacher&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../entitys/Teacher.html" target="_self" >Promise&lt;Teacher&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -349,6 +360,7 @@
                 <td class="col-md-4">
                     <a name="getTeachers"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>getTeachers</b></span>
                         <a href="#getTeachers"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -356,7 +368,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getTeachers()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getTeachers()</code>
                 </td>
             </tr>
 
@@ -364,14 +377,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get()<br /></code>
+                    <code>@Get()<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:29</a></div>
                 </td>
             </tr>
 
@@ -380,7 +393,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/Teacher.html" target="_self" >Observable&lt;Teacher[]&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../entitys/Teacher.html" target="_self" >Promise&lt;Teacher[]&gt;</a></code>
 
                     </div>
                 </td>
@@ -391,16 +404,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="updateTeacher"></a>
+                    <a name="UpdateTeacher"></a>
                     <span class="name">
-                        <span ><b>updateTeacher</b></span>
-                        <a href="#updateTeacher"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Async</span>
+                        <span ><b>UpdateTeacher</b></span>
+                        <a href="#UpdateTeacher"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>updateTeacher(body: <a href="../classes/UpdateTeacherDTO.html" target="_self">UpdateTeacherDTO</a>, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>UpdateTeacher(body: <a href="../classes/UpdateTeacherDTO.html" target="_self">UpdateTeacherDTO</a>, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -408,14 +423,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Put(&#x27;/:id&#x27;)<br /></code>
+                    <code>@Put(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br />@ApiNotFoundResponse({description: &#x27;This group not found!&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Bad Request&#x27;, schema: undefined})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:64</a></div>
                 </td>
             </tr>
 
@@ -465,7 +480,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;UpdateResult&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;UpdateResult&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -484,12 +499,18 @@
   Controller,
   Delete,
   Get,
+  NotFoundException,
   Param,
   Post,
   Put,
 } from &quot;@nestjs/common&quot;;
-import { ApiTags } from &quot;@nestjs/swagger&quot;;
-import { Observable } from &quot;rxjs&quot;;
+import {
+  ApiBadRequestResponse,
+  ApiCreatedResponse,
+  ApiNotFoundResponse,
+  ApiOkResponse,
+  ApiTags,
+} from &quot;@nestjs/swagger&quot;;
 import { Teacher } from &quot;src/Entities/Teachers&quot;;
 import { DeleteResult, UpdateResult } from &quot;typeorm&quot;;
 import { CreateTeacherDTO, UpdateTeacherDTO } from &quot;./dto&quot;;
@@ -500,31 +521,73 @@ import { TeachersService } from &quot;./teachers.service&quot;;
 export class TeachersController {
   constructor(private readonly teacherService: TeachersService) {}
   @Get()
-  getTeachers(): Observable&lt;Teacher[]&gt; {
-    return this.teacherService.getTeachers();
+  @ApiOkResponse({ description: &quot;OK&quot; })
+  async getTeachers(): Promise&lt;Teacher[]&gt; {
+    return await this.teacherService.getTeachers();
   }
 
   @Get(&quot;:id&quot;)
-  getTeacher(@Param() id: number): Observable&lt;Teacher&gt; {
-    return this.teacherService.getTeacher(id);
+  @ApiOkResponse({ description: &quot;OK&quot; })
+  @ApiNotFoundResponse({ description: &quot;This teacher not found!&quot; })
+  async getTeacher(@Param(&quot;id&quot;) id: number): Promise&lt;Teacher&gt; {
+    const teacher &#x3D; await this.teacherService.getTeacher(id);
+
+    if (!teacher) {
+      throw new NotFoundException(&quot;This teacher not found!&quot;);
+    }
+    return teacher;
   }
 
   @Post()
-  createTeacher(@Body() body: CreateTeacherDTO): Observable&lt;Teacher&gt; {
-    return this.teacherService.createTeacher(body);
+  @ApiCreatedResponse({ description: &quot;Created&quot; })
+  @ApiBadRequestResponse({
+    description: &quot;Bad Request&quot;,
+  })
+  async createTeacher(@Body() body: CreateTeacherDTO): Promise&lt;Teacher&gt; {
+    return await this.teacherService.createTeacher(body);
   }
 
   @Put(&quot;/:id&quot;)
-  updateTeacher(
+  @ApiOkResponse({ description: &quot;OK&quot; })
+  @ApiNotFoundResponse({ description: &quot;This group not found!&quot; })
+  @ApiBadRequestResponse({
+    description: &quot;Bad Request&quot;,
+    schema: {
+      type: &quot;String&quot;,
+      enum: [&quot;firstName must be a string&quot;, &quot;lastName must be a string&quot;],
+    },
+  })
+  async UpdateTeacher(
     @Body() body: UpdateTeacherDTO,
     @Param() id: number
-  ): Observable&lt;UpdateResult&gt; {
-    return this.teacherService.updateTeacher(body, id);
+  ): Promise&lt;UpdateResult&gt; {
+    const teacher &#x3D; await this.teacherService.getTeacher(id);
+
+    if (!teacher) {
+      throw new NotFoundException(&quot;This teacher not found!&quot;);
+    }
+
+    return await this.teacherService.updateTeacher(body, id);
   }
 
   @Delete(&quot;/:id&quot;)
-  deleteTeacher(@Param() id: number): Observable&lt;DeleteResult&gt; {
-    return this.teacherService.deleteTeacher(id);
+  @ApiOkResponse({ description: &quot;OK&quot; })
+  @ApiNotFoundResponse({ description: &quot;This teacher not found!&quot; })
+  @ApiBadRequestResponse({
+    description: &quot;Bad Request&quot;,
+    schema: {
+      type: &quot;String&quot;,
+      enum: [&quot;firstName must be a string&quot;, &quot;lastName must be a string&quot;],
+    },
+  })
+  async deleteTeacher(@Param(&quot;id&quot;) id: number): Promise&lt;DeleteResult&gt; {
+    const teacher &#x3D; await this.teacherService.getTeacher(id);
+
+    if (!teacher) {
+      throw new NotFoundException(&quot;This teacher not found!&quot;);
+    }
+
+    return await this.teacherService.deleteTeacher(id);
   }
 }
 </code></pre>
