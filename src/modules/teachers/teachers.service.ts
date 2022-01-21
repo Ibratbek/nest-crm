@@ -1,6 +1,5 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { from, Observable } from "rxjs";
 import { Teacher } from "src/Entities/Teachers";
 import { DeleteResult, Repository, UpdateResult } from "typeorm";
 import { CreateTeacherDTO, UpdateTeacherDTO } from "./dto";
@@ -12,32 +11,36 @@ export class TeachersService {
     private readonly teachersRepository: Repository<Teacher>
   ) {}
 
-  createTeacher(body: CreateTeacherDTO): Observable<Teacher> {
+  async createTeacher(body: CreateTeacherDTO): Promise<Teacher> {
     const teacher = this.teachersRepository.create({
       first_name: body.firstName,
       last_name: body.lastName,
     });
 
-    return from(this.teachersRepository.save(teacher));
+    return await this.teachersRepository.save(teacher);
   }
 
-  getTeachers(): Observable<Teacher[]> {
-    return from(this.teachersRepository.find());
+  async getTeachers(): Promise<Teacher[]> {
+    return await this.teachersRepository.find();
   }
 
-  getTeacher(id: number): Observable<Teacher> {
-    return from(this.teachersRepository.findOne(id));
+  async getTeacher(id: number): Promise<Teacher> {
+    return await this.teachersRepository.findOne(id);
   }
 
-  updateTeacher(body: UpdateTeacherDTO, id: number): Observable<UpdateResult> {
+  async updateTeacher(
+    body: UpdateTeacherDTO,
+    id: number
+  ): Promise<UpdateResult> {
     const teacher = this.teachersRepository.create({
       first_name: body.firstName,
       last_name: body.lastName,
     });
-    return from(this.teachersRepository.update(id, teacher));
+    return await this.teachersRepository.update(id, teacher);
   }
 
-  deleteTeacher(id: number): Observable<DeleteResult> {
-    return from(this.teachersRepository.delete(id));
+  async deleteTeacher(id: number): Promise<DeleteResult> {
+    return await this.teachersRepository.delete(id);
   }
+
 }
