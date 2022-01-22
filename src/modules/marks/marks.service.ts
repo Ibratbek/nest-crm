@@ -18,7 +18,6 @@ export class MarksService {
       student: { id: body.studentId },
       subject: { id: body.subjectId },
     });
-
     return from(this.marksRepository.save(mark));
   }
 

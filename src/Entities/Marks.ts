@@ -2,7 +2,7 @@ import {
   Column,
   Entity,
   JoinColumn,
-  OneToOne,
+  ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Student } from "./Students";
@@ -13,11 +13,11 @@ export class Mark {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToOne(() => Student, (student) => student.id)
+  @ManyToOne(() => Student, (student) => student.id)
   @JoinColumn({ name: "student_id" })
   student: Student;
 
-  @OneToOne(() => Subject, (subject) => subject.id)
+  @ManyToOne(() => Subject, (subject) => subject.id)
   @JoinColumn({ name: "subject_id" })
   subject: Subject;
 
