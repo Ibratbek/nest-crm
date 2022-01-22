@@ -7,7 +7,11 @@ import {
   Param,
   Post,
   Put,
+  Res,
+  UploadedFile,
+  UseInterceptors,
 } from "@nestjs/common";
+import { FileInterceptor } from "@nestjs/platform-express";
 import {
   ApiBadRequestResponse,
   ApiCreatedResponse,
@@ -19,6 +23,8 @@ import { Teacher } from "src/Entities/Teachers";
 import { DeleteResult, UpdateResult } from "typeorm";
 import { CreateTeacherDTO, UpdateTeacherDTO } from "./dto";
 import { TeachersService } from "./teachers.service";
+import { join, extname } from "path";
+import { diskStorage } from "multer";
 
 @Controller("teachers")
 @ApiTags("Teachers")
@@ -92,5 +98,36 @@ export class TeachersController {
     }
 
     return await this.teacherService.deleteTeacher(id);
+  }
+
+  @Post("upload")
+  @ApiOkResponse({ description: "img succesfully uploaded" })
+  @ApiBadRequestResponse({
+    description: "Bad Request",
+  })
+  @UseInterceptors(
+    FileInterceptor("photo", {
+      storage: diskStorage({
+        destination: join(__dirname, "../../shared/uploads/avatars"),
+        filename: function (_, file, cb) {
+          const date: Date = new Date();
+          const fileName = date.getTime();
+          const ext = extname(file.originalname);
+          cb(null, fileName + ext);
+        },
+      }), // multer diskStorage
+    })
+  )
+  uploadImage(@UploadedFile("file") file) {
+    if (!file) {
+      throw new NotFoundException("File not found!");
+    }
+    return "File succesfully uploaded";
+  }
+
+  @Get("/uploads/:imgpath")
+  @ApiOkResponse({ description: "send file" })
+  getImg(@Param("imgpath") img: string, @Res() res) {
+    res.sendFile(join(__dirname, "../../shared/uploads/avatars", img));
   }
 }
