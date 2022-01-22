@@ -42,5 +42,4 @@ export class TeachersService {
   async deleteTeacher(id: number): Promise<DeleteResult> {
     return await this.teachersRepository.delete(id);
   }
-
 }
