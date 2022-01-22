@@ -3,9 +3,11 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Group } from "./Groups";
+import { Mark } from "./Marks";
 
 @Entity("students")
 export class Student {
@@ -17,6 +19,9 @@ export class Student {
 
   @Column()
   last_name: string;
+
+  @OneToMany(() => Mark, (mark) => mark)
+  marks: Mark[];
 
   @ManyToOne(() => Group, (group) => group.id)
   @JoinColumn({ name: "group_id" })
