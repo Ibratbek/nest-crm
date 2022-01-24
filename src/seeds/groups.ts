@@ -9,7 +9,7 @@ export default async function groupsSeed() {
 
     const groupsRepo = getRepository(Group);
 
-    await groupsRepo.query("delete from groups");
+    await groupsRepo.query("delete from groups cascade");
 
     for (let i = 0; i < 5; i++) {
       const group = groupsRepo.create({

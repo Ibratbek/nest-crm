@@ -8,7 +8,7 @@ export default async function teacherSeed() {
     const chance = new Chance();
 
     const teachersRepo = getRepository(Teacher);
-    await teachersRepo.query("delete from teachers");
+    await teachersRepo.query("delete from teachers cascade");
 
     for (let i = 0; i < 5; i++) {
       const teacher = teachersRepo.create({
