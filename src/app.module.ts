@@ -9,6 +9,8 @@ import { TeachersModule } from "./modules/teachers/teachers.module";
 import { SubjectTeacherModule } from "./modules/subject-teacher/subject-teacher.module";
 import { MarksModule } from "./modules/marks/marks.module";
 import { SubjectsModule } from "./modules/subjects/subjects.module";
+import { NestModule, MiddlewareConsumer } from "@nestjs/common";
+import { AuthMiddleware } from "./common/auth.middleware";
 
 @Module({
   imports: [
@@ -35,4 +37,8 @@ import { SubjectsModule } from "./modules/subjects/subjects.module";
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(AuthMiddleware).forRoutes("*");
+  }
+}
