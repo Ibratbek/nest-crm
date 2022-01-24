@@ -12,41 +12,37 @@ export class MarksService {
     private readonly marksRepository: Repository<Mark>
   ) {}
 
-  createMark(body: CreateMarkDTO): Observable<MarkDTO> {
+  async createMark(body: CreateMarkDTO): Promise<MarkDTO> {
     const mark = this.marksRepository.create({
       mark: body.mark,
       student: { id: body.studentId },
       subject: { id: body.subjectId },
     });
-    return from(this.marksRepository.save(mark));
+    return await this.marksRepository.save(mark);
   }
 
-  getAll(): Observable<MarkDTO[]> {
-    return from(
-      this.marksRepository
-        .createQueryBuilder("mark")
-        .leftJoinAndSelect("mark.student", "student")
-        .leftJoinAndSelect("mark.subject", "subject")
-        .getMany()
-    );
+  async getAll(): Promise<MarkDTO[]> {
+    return await this.marksRepository
+      .createQueryBuilder("mark")
+      .leftJoinAndSelect("mark.student", "student")
+      .leftJoinAndSelect("mark.subject", "subject")
+      .getMany();
   }
 
-  getOne(id: number): Observable<MarkDTO> {
-    return from(
-      this.marksRepository
-        .createQueryBuilder("mark")
-        .leftJoinAndSelect("mark.student", "student")
-        .leftJoinAndSelect("mark.subject", "subject")
-        .where("mark.id = :id", { id: id })
-        .getOne()
-    );
+  async getOne(id: number): Promise<MarkDTO> {
+    return await this.marksRepository
+      .createQueryBuilder("mark")
+      .leftJoinAndSelect("mark.student", "student")
+      .leftJoinAndSelect("mark.subject", "subject")
+      .where("mark.id = :id", { id: id })
+      .getOne();
   }
 
-  update(id: number, body: UpdateMarkDTO): Observable<UpdateResult> {
-    return from(this.marksRepository.update(id, body));
+  async update(id: number, body: UpdateMarkDTO): Promise<UpdateResult> {
+    return await this.marksRepository.update(id, body);
   }
 
-  delete(id: number): Observable<DeleteResult> {
-    return from(this.marksRepository.delete(id));
+  async delete(id: number): Promise<DeleteResult> {
+    return await this.marksRepository.delete(id);
   }
 }

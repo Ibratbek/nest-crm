@@ -20,5 +20,5 @@ export class SubjectTeacher {
   @OneToOne(() => Teacher, (teacher) => teacher.id)
   @JoinColumn({ name: "teacher_id" })
   teacher: Teacher;
-  subject_teacher: { id: number };
+  // subject_teacher: { id: number };
 }

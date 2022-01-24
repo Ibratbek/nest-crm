@@ -44,7 +44,7 @@ export class StudentsController {
     return await this.studentService.getStudents();
   }
 
-  @Get("/:id")
+  @Get(":id")
   @ApiNotFoundResponse({ description: "This student not found!" })
   async getStudent(@Param("id") id: number): Promise<Student> {
     const student = await this.studentService.getStudent(id);
@@ -56,7 +56,7 @@ export class StudentsController {
     return await this.studentService.getStudent(id);
   }
 
-  @Put("/:id")
+  @Put(":id")
   @ApiOkResponse({ description: "OK" })
   @ApiNotFoundResponse({
     description: "Not Found!",
@@ -97,7 +97,7 @@ export class StudentsController {
     return await this.studentService.updateStudent(body, id);
   }
 
-  @Delete("/:id")
+  @Delete(":id")
   @ApiOkResponse({ description: "OK" })
   @ApiNotFoundResponse({ description: "This student not found!" })
   async deleteStudent(@Param("id") id: number): Promise<DeleteResult> {
