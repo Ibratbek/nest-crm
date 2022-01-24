@@ -84,18 +84,23 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#createSubject" >createSubject</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#deleteSubject" >deleteSubject</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getSubjectById" >getSubjectById</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getSubjects" >getSubjects</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#updateSubject" >updateSubject</a>
                             </li>
                         </ul>
@@ -121,6 +126,7 @@
                 <td class="col-md-4">
                     <a name="createSubject"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>createSubject</b></span>
                         <a href="#createSubject"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -128,7 +134,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createSubject(body: <a href="../classes/CreateSubjectDTO.html" target="_self">CreateSubjectDTO</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createSubject(body: <a href="../classes/CreateSubjectDTO.html" target="_self">CreateSubjectDTO</a>)</code>
                 </td>
             </tr>
 
@@ -136,7 +143,7 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post()<br /></code>
+                    <code>@Post()<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br /></code>
                 </td>
             </tr>
 
@@ -181,7 +188,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/SubjectDTO.html" target="_self" >Observable&lt;SubjectDTO&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/SubjectDTO.html" target="_self" >Promise&lt;SubjectDTO&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -197,6 +204,7 @@
                 <td class="col-md-4">
                     <a name="deleteSubject"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>deleteSubject</b></span>
                         <a href="#deleteSubject"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -204,7 +212,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>deleteSubject(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteSubject(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -212,14 +221,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Delete(&#x27;/:id&#x27;)<br /></code>
+                    <code>@Delete(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br />@ApiNotFoundResponse({description: &#x27;This subject not found!&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">src/modules/subjects/subjects.controller.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/modules/subjects/subjects.controller.ts:63</a></div>
                 </td>
             </tr>
 
@@ -257,7 +266,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;DeleteResult&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;DeleteResult&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -273,6 +282,7 @@
                 <td class="col-md-4">
                     <a name="getSubjectById"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>getSubjectById</b></span>
                         <a href="#getSubjectById"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -280,7 +290,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getSubjectById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getSubjectById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -288,14 +299,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;/:id&#x27;)<br /></code>
+                    <code>@Get(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br />@ApiNotFoundResponse({description: &#x27;This subject not found!&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">src/modules/subjects/subjects.controller.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/modules/subjects/subjects.controller.ts:36</a></div>
                 </td>
             </tr>
 
@@ -333,7 +344,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/SubjectDTO.html" target="_self" >Observable&lt;SubjectDTO&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/SubjectDTO.html" target="_self" >Promise&lt;SubjectDTO&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -349,6 +360,7 @@
                 <td class="col-md-4">
                     <a name="getSubjects"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>getSubjects</b></span>
                         <a href="#getSubjects"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -356,7 +368,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getSubjects()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getSubjects()</code>
                 </td>
             </tr>
 
@@ -364,14 +377,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get()<br /></code>
+                    <code>@Get()<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/modules/subjects/subjects.controller.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/modules/subjects/subjects.controller.ts:29</a></div>
                 </td>
             </tr>
 
@@ -380,7 +393,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/SubjectDTO.html" target="_self" >Observable&lt;SubjectDTO[]&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/SubjectDTO.html" target="_self" >Promise&lt;SubjectDTO[]&gt;</a></code>
 
                     </div>
                 </td>
@@ -393,6 +406,7 @@
                 <td class="col-md-4">
                     <a name="updateSubject"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>updateSubject</b></span>
                         <a href="#updateSubject"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -400,7 +414,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>updateSubject(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, body: <a href="../classes/UpdateSubjectDTO.html" target="_self">UpdateSubjectDTO</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateSubject(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, body: <a href="../classes/UpdateSubjectDTO.html" target="_self">UpdateSubjectDTO</a>)</code>
                 </td>
             </tr>
 
@@ -408,14 +423,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Put(&#x27;/:id&#x27;)<br /></code>
+                    <code>@Put(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br />@ApiNotFoundResponse({description: &#x27;This subject not found!&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">src/modules/subjects/subjects.controller.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/modules/subjects/subjects.controller.ts:48</a></div>
                 </td>
             </tr>
 
@@ -465,7 +480,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;UpdateResult&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;UpdateResult&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -484,48 +499,70 @@
   Controller,
   Delete,
   Get,
+  NotFoundException,
   Param,
   Post,
   Put,
 } from &quot;@nestjs/common&quot;;
-import { ApiTags } from &quot;@nestjs/swagger&quot;;
-import { Observable } from &quot;rxjs&quot;;
+import { ApiNotFoundResponse, ApiOkResponse, ApiTags } from &quot;@nestjs/swagger&quot;;
 import { DeleteResult, UpdateResult } from &quot;typeorm&quot;;
 import { CreateSubjectDTO, SubjectDTO, UpdateSubjectDTO } from &quot;./dto&quot;;
 import { SubjectsService } from &quot;./subjects.service&quot;;
 
 @Controller(&quot;subjects&quot;)
 @ApiTags(&quot;Subjects&quot;)
-
 export class SubjectsController {
   constructor(private readonly subjectService: SubjectsService) {}
 
   @Post()
-  createSubject(@Body() body: CreateSubjectDTO): Observable&lt;SubjectDTO&gt; {
-    return this.subjectService.createSubject(body);
+  @ApiOkResponse({ description: &quot;OK&quot; })
+  async createSubject(@Body() body: CreateSubjectDTO): Promise&lt;SubjectDTO&gt; {
+    return await this.subjectService.createSubject(body);
   }
 
   @Get()
-  getSubjects(): Observable&lt;SubjectDTO[]&gt; {
-    return this.subjectService.getAll();
+  @ApiOkResponse({ description: &quot;OK&quot; })
+  async getSubjects(): Promise&lt;SubjectDTO[]&gt; {
+    return await this.subjectService.getAll();
   }
 
   @Get(&quot;/:id&quot;)
-  getSubjectById(@Param() id: number): Observable&lt;SubjectDTO&gt; {
-    return this.subjectService.getSubjectById(id);
+  @ApiOkResponse({ description: &quot;OK&quot; })
+  @ApiNotFoundResponse({ description: &quot;This subject not found!&quot; })
+  async getSubjectById(@Param(&quot;id&quot;) id: number): Promise&lt;SubjectDTO&gt; {
+    const subject &#x3D; await this.subjectService.getSubjectById(id);
+    if (!subject) {
+      throw new NotFoundException(&quot;This subject not found!&quot;);
+    }
+
+    return subject;
   }
 
   @Put(&quot;/:id&quot;)
-  updateSubject(
-    @Param() id: number,
+  @ApiOkResponse({ description: &quot;OK&quot; })
+  @ApiNotFoundResponse({ description: &quot;This subject not found!&quot; })
+  async updateSubject(
+    @Param(&quot;id&quot;) id: number,
     @Body() body: UpdateSubjectDTO
-  ): Observable&lt;UpdateResult&gt; {
-    return this.subjectService.updateSubject(id, body);
+  ): Promise&lt;UpdateResult&gt; {
+    const subject &#x3D; await this.subjectService.getSubjectById(id);
+    if (!subject) {
+      throw new NotFoundException(&quot;This subject not found!&quot;);
+    }
+
+    return await this.subjectService.updateSubject(id, body);
   }
 
   @Delete(&quot;/:id&quot;)
-  deleteSubject(@Param() id: number): Observable&lt;DeleteResult&gt; {
-    return this.subjectService.deleteSubject(id);
+  @ApiOkResponse({ description: &quot;OK&quot; })
+  @ApiNotFoundResponse({ description: &quot;This subject not found!&quot; })
+  async deleteSubject(@Param(&quot;id&quot;) id: number): Promise&lt;DeleteResult&gt; {
+    const subject &#x3D; await this.subjectService.getSubjectById(id);
+    if (!subject) {
+      throw new NotFoundException(&quot;This subject not found!&quot;);
+    }
+
+    return await this.subjectService.deleteSubject(id);
   }
 }
 </code></pre>

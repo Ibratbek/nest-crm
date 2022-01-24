@@ -129,7 +129,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/modules/subject-teacher/dto.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/modules/subject-teacher/dto.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -155,7 +155,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/modules/subject-teacher/dto.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/modules/subject-teacher/dto.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -181,7 +181,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/modules/subject-teacher/dto.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/modules/subject-teacher/dto.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -200,11 +200,17 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { GroupDTO } from &quot;../groups/dto&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &quot;@nestjs/swagger&quot;;
+import { IsNumber } from &quot;class-validator&quot;;
+import { GroupDTO } from &quot;../groups/dto&quot;;
 import { TeacherDTO } from &quot;../teachers/dto&quot;;
 
 export class CreateSubjectTeacherDTO {
+  @IsNumber()
+  @ApiProperty({ type: Number })
   teacherId: number;
+  @IsNumber()
+  @ApiProperty({ type: Number })
   groupId: number;
 }
 
@@ -215,7 +221,11 @@ export class SubjectTeacherDTO {
 }
 
 export class UpdateSubjectTeacherDTO {
+  @IsNumber()
+  @ApiProperty({ type: Number })
   teacherId: number;
+  @IsNumber()
+  @ApiProperty({ type: Number })
   groupId: number;
 }
 </code></pre>

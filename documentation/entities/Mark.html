@@ -234,7 +234,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @OneToOne(undefined, student &#x3D;&gt; student.id)<br />@JoinColumn({name: &#x27;student_id&#x27;})<br />
+                            @ManyToOne(undefined, student &#x3D;&gt; student.id)<br />@JoinColumn({name: &#x27;student_id&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -269,7 +269,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @OneToOne(undefined, subject &#x3D;&gt; subject.id)<br />@JoinColumn({name: &#x27;subject_id&#x27;})<br />
+                            @ManyToOne(undefined, subject &#x3D;&gt; subject.id)<br />@JoinColumn({name: &#x27;subject_id&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -291,7 +291,7 @@
   Column,
   Entity,
   JoinColumn,
-  OneToOne,
+  ManyToOne,
   PrimaryGeneratedColumn,
 } from &quot;typeorm&quot;;
 import { Student } from &quot;./Students&quot;;
@@ -302,11 +302,11 @@ export class Mark {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToOne(() &#x3D;&gt; Student, (student) &#x3D;&gt; student.id)
+  @ManyToOne(() &#x3D;&gt; Student, (student) &#x3D;&gt; student.id)
   @JoinColumn({ name: &quot;student_id&quot; })
   student: Student;
 
-  @OneToOne(() &#x3D;&gt; Subject, (subject) &#x3D;&gt; subject.id)
+  @ManyToOne(() &#x3D;&gt; Subject, (subject) &#x3D;&gt; subject.id)
   @JoinColumn({ name: &quot;subject_id&quot; })
   subject: Subject;
 
