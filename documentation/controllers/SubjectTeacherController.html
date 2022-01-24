@@ -143,14 +143,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post()<br /></code>
+                    <code>@Post()<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Group and Teacher not found!&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Bad Request&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">src/modules/subject-teacher/subject-teacher.controller.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/modules/subject-teacher/subject-teacher.controller.ts:38</a></div>
                 </td>
             </tr>
 
@@ -221,14 +221,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Delete(&#x27;/:id&#x27;)<br /></code>
+                    <code>@Delete(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br />@ApiNotFoundResponse({description: &#x27;This SubjectTeacher not found!&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/modules/subject-teacher/subject-teacher.controller.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="107"
+                            class="link-to-prism">src/modules/subject-teacher/subject-teacher.controller.ts:107</a></div>
                 </td>
             </tr>
 
@@ -299,14 +299,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;/:id&#x27;)<br /></code>
+                    <code>@Get(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br />@ApiNotFoundResponse({description: &#x27;This SubjectTeacher not found!&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">src/modules/subject-teacher/subject-teacher.controller.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">src/modules/subject-teacher/subject-teacher.controller.ts:61</a></div>
                 </td>
             </tr>
 
@@ -377,14 +377,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get()<br /></code>
+                    <code>@Get()<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">src/modules/subject-teacher/subject-teacher.controller.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/modules/subject-teacher/subject-teacher.controller.ts:54</a></div>
                 </td>
             </tr>
 
@@ -423,14 +423,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Put(&#x27;/:id&#x27;)<br /></code>
+                    <code>@Put(&#x27;/:id&#x27;)<br />@ApiNotFoundResponse({description: &#x27;This SubjectTeacher not found!&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Bad Request&#x27;, schema: undefined})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">src/modules/subject-teacher/subject-teacher.controller.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">src/modules/subject-teacher/subject-teacher.controller.ts:81</a></div>
                 </td>
             </tr>
 
@@ -499,12 +499,20 @@
   Controller,
   Delete,
   Get,
+  NotFoundException,
   Param,
   Post,
   Put,
 } from &quot;@nestjs/common&quot;;
-import { ApiTags } from &quot;@nestjs/swagger&quot;;
-import { DeleteResult, UpdateResult } from &quot;typeorm&quot;;
+import {
+  ApiBadRequestResponse,
+  ApiNotFoundResponse,
+  ApiOkResponse,
+  ApiTags,
+} from &quot;@nestjs/swagger&quot;;
+import { Group } from &quot;src/Entities/Groups&quot;;
+import { Teacher } from &quot;src/Entities/Teachers&quot;;
+import { DeleteResult, getRepository, UpdateResult } from &quot;typeorm&quot;;
 import {
   CreateSubjectTeacherDTO,
   SubjectTeacherDTO,
@@ -518,32 +526,89 @@ export class SubjectTeacherController {
   constructor(private readonly subjectTeacherService: SubjectTeacherService) {}
 
   @Post()
+  @ApiOkResponse({ description: &quot;OK&quot; })
+  @ApiNotFoundResponse({ description: &quot;Group and Teacher not found!&quot; })
+  @ApiBadRequestResponse({
+    description: &quot;Bad Request&quot;,
+  })
   async createSubjectTeacher(
     @Body() body: CreateSubjectTeacherDTO
   ): Promise&lt;SubjectTeacherDTO&gt; {
+    const groupRepository &#x3D; getRepository(Group);
+    const teacherRepository &#x3D; getRepository(Teacher);
+    const group &#x3D; await groupRepository.findOne(body.groupId);
+    const teacher &#x3D; await teacherRepository.findOne(body.teacherId);
+
+    if (!group || !teacher) {
+      throw new NotFoundException(&quot;Group and Teacher not found!&quot;);
+    }
     return await this.subjectTeacherService.insertSubjectTeacher(body);
   }
 
   @Get()
+  @ApiOkResponse({ description: &quot;OK&quot; })
   async getSubjectTeachers(): Promise&lt;SubjectTeacherDTO[]&gt; {
     return await this.subjectTeacherService.getSubjectTeachers();
   }
 
   @Get(&quot;/:id&quot;)
+  @ApiOkResponse({ description: &quot;OK&quot; })
+  @ApiNotFoundResponse({ description: &quot;This SubjectTeacher not found!&quot; })
   async getSubjectTeacher(@Param(&quot;id&quot;) id: number): Promise&lt;SubjectTeacherDTO&gt; {
-    return await this.subjectTeacherService.getSubjectTeacher(id);
+    const subject_teacher &#x3D; await this.subjectTeacherService.getSubjectTeacher(
+      id
+    );
+
+    if (!subject_teacher) {
+      throw new NotFoundException(&quot;SubjectTeacher not found!&quot;);
+    }
+    return subject_teacher;
   }
 
   @Put(&quot;/:id&quot;)
+  @ApiNotFoundResponse({ description: &quot;This SubjectTeacher not found!&quot; })
+  @ApiBadRequestResponse({
+    description: &quot;Bad Request&quot;,
+    schema: {
+      type: &quot;String&quot;,
+      enum: [&quot;SubjectTeacher not found!&quot;, &quot;Group and Teacher not found!&quot;],
+    },
+  })
   async updateSubjectTeacher(
     @Param(&quot;id&quot;) id: number,
     @Body() body: UpdateSubjectTeacherDTO
   ): Promise&lt;UpdateResult&gt; {
+    const subject_teacher &#x3D; await this.subjectTeacherService.getSubjectTeacher(
+      id
+    );
+
+    if (!subject_teacher) {
+      throw new NotFoundException(&quot;SubjectTeacher not found!&quot;);
+    }
+    const groupRepository &#x3D; getRepository(Group);
+    const teacherRepository &#x3D; getRepository(Teacher);
+    const group &#x3D; await groupRepository.findOne(body.groupId);
+    const teacher &#x3D; await teacherRepository.findOne(body.teacherId);
+
+    if ((!group || !teacher) &amp;&amp; (body.teacherId || body.groupId)) {
+      throw new NotFoundException(&quot;Group and Teacher not found!&quot;);
+    }
+
     return await this.subjectTeacherService.updateSubjectTeacher(id, body);
   }
 
   @Delete(&quot;/:id&quot;)
+  @ApiOkResponse({ description: &quot;OK&quot; })
+  @ApiNotFoundResponse({ description: &quot;This SubjectTeacher not found!&quot; })
   async deleteSubjectTeacher(@Param(&quot;id&quot;) id: number): Promise&lt;DeleteResult&gt; {
+    const subject_teacher &#x3D; await this.subjectTeacherService.getSubjectTeacher(
+      id
+    );
+
+    if (!subject_teacher) {
+      throw new NotFoundException(&quot;SubjectTeacher not found!&quot;);
+    }
+
     return await this.subjectTeacherService.deleteSubjectTeacher(id);
   }
 }

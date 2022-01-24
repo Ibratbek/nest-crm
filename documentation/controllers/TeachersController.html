@@ -92,6 +92,9 @@
                                 <a href="#deleteTeacher" >deleteTeacher</a>
                             </li>
                             <li>
+                                <a href="#getImg" >getImg</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#getTeacher" >getTeacher</a>
                             </li>
@@ -102,6 +105,9 @@
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#UpdateTeacher" >UpdateTeacher</a>
+                            </li>
+                            <li>
+                                <a href="#uploadImage" >uploadImage</a>
                             </li>
                         </ul>
                     </td>
@@ -149,8 +155,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:56</a></div>
                 </td>
             </tr>
 
@@ -227,8 +233,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:93</a></div>
                 </td>
             </tr>
 
@@ -280,6 +286,93 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getImg"></a>
+                    <span class="name">
+                        <span ><b>getImg</b></span>
+                        <a href="#getImg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getImg(img: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, res)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;/uploads/:imgpath&#x27;)<br />@ApiOkResponse({description: &#x27;send file&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:130</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>img</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>res</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getTeacher"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -305,8 +398,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:42</a></div>
                 </td>
             </tr>
 
@@ -383,8 +476,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:35</a></div>
                 </td>
             </tr>
 
@@ -429,8 +522,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:70</a></div>
                 </td>
             </tr>
 
@@ -490,6 +583,78 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadImage"></a>
+                    <span class="name">
+                        <span ><b>uploadImage</b></span>
+                        <a href="#uploadImage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>uploadImage(file)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;upload&#x27;)<br />@ApiOkResponse({description: &#x27;img succesfully uploaded&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Bad Request&#x27;})<br />@UseInterceptors(undefined)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="121"
+                            class="link-to-prism">src/modules/teachers/teachers.controller.ts:121</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>file</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    </div>
 
 
@@ -503,7 +668,11 @@
   Param,
   Post,
   Put,
+  Res,
+  UploadedFile,
+  UseInterceptors,
 } from &quot;@nestjs/common&quot;;
+import { FileInterceptor } from &quot;@nestjs/platform-express&quot;;
 import {
   ApiBadRequestResponse,
   ApiCreatedResponse,
@@ -515,6 +684,8 @@ import { Teacher } from &quot;src/Entities/Teachers&quot;;
 import { DeleteResult, UpdateResult } from &quot;typeorm&quot;;
 import { CreateTeacherDTO, UpdateTeacherDTO } from &quot;./dto&quot;;
 import { TeachersService } from &quot;./teachers.service&quot;;
+import { join, extname } from &quot;path&quot;;
+import { diskStorage } from &quot;multer&quot;;
 
 @Controller(&quot;teachers&quot;)
 @ApiTags(&quot;Teachers&quot;)
@@ -588,6 +759,37 @@ export class TeachersController {
     }
 
     return await this.teacherService.deleteTeacher(id);
+  }
+
+  @Post(&quot;upload&quot;)
+  @ApiOkResponse({ description: &quot;img succesfully uploaded&quot; })
+  @ApiBadRequestResponse({
+    description: &quot;Bad Request&quot;,
+  })
+  @UseInterceptors(
+    FileInterceptor(&quot;photo&quot;, {
+      storage: diskStorage({
+        destination: join(__dirname, &quot;../../shared/uploads/avatars&quot;),
+        filename: function (_, file, cb) {
+          const date: Date &#x3D; new Date();
+          const fileName &#x3D; date.getTime();
+          const ext &#x3D; extname(file.originalname);
+          cb(null, fileName + ext);
+        },
+      }), // multer diskStorage
+    })
+  )
+  uploadImage(@UploadedFile(&quot;file&quot;) file) {
+    if (!file) {
+      throw new NotFoundException(&quot;File not found!&quot;);
+    }
+    return &quot;File succesfully uploaded&quot;;
+  }
+
+  @Get(&quot;/uploads/:imgpath&quot;)
+  @ApiOkResponse({ description: &quot;send file&quot; })
+  getImg(@Param(&quot;imgpath&quot;) img: string, @Res() res) {
+    res.sendFile(join(__dirname, &quot;../../shared/uploads/avatars&quot;, img));
   }
 }
 </code></pre>
