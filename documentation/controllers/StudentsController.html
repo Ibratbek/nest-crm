@@ -149,8 +149,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">src/modules/students/students.controller.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/modules/students/students.controller.ts:37</a></div>
                 </td>
             </tr>
 
@@ -221,14 +221,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Delete(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br />@ApiNotFoundResponse({description: &#x27;This student not found!&#x27;})<br /></code>
+                    <code>@Delete(&#x27;:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br />@ApiNotFoundResponse({description: &#x27;This student not found!&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="104"
-                            class="link-to-prism">src/modules/students/students.controller.ts:104</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">src/modules/students/students.controller.ts:103</a></div>
                 </td>
             </tr>
 
@@ -299,14 +299,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;/:id&#x27;)<br />@ApiNotFoundResponse({description: &#x27;This student not found!&#x27;})<br /></code>
+                    <code>@Get(&#x27;:id&#x27;)<br />@ApiNotFoundResponse({description: &#x27;This student not found!&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/modules/students/students.controller.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/modules/students/students.controller.ts:49</a></div>
                 </td>
             </tr>
 
@@ -383,8 +383,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">src/modules/students/students.controller.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/modules/students/students.controller.ts:43</a></div>
                 </td>
             </tr>
 
@@ -423,14 +423,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Put(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Not Found!&#x27;, schema: undefined})<br />@ApiBadRequestResponse({description: &#x27;Bad Request&#x27;, schema: undefined})<br /></code>
+                    <code>@Put(&#x27;:id&#x27;)<br />@ApiOkResponse({description: &#x27;OK&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Not Found!&#x27;, schema: undefined})<br />@ApiBadRequestResponse({description: &#x27;Bad Request&#x27;, schema: undefined})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">src/modules/students/students.controller.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">src/modules/students/students.controller.ts:79</a></div>
                 </td>
             </tr>
 
@@ -522,7 +522,6 @@ export class StudentsController {
   constructor(private readonly studentService: StudentsService) {}
 
   @Post()
-
   @ApiOkResponse({ description: &quot;Created&quot; })
   @ApiBadRequestResponse({
     description: &quot;Bad Request&quot;,
@@ -541,7 +540,7 @@ export class StudentsController {
     return await this.studentService.getStudents();
   }
 
-  @Get(&quot;/:id&quot;)
+  @Get(&quot;:id&quot;)
   @ApiNotFoundResponse({ description: &quot;This student not found!&quot; })
   async getStudent(@Param(&quot;id&quot;) id: number): Promise&lt;Student&gt; {
     const student &#x3D; await this.studentService.getStudent(id);
@@ -553,7 +552,7 @@ export class StudentsController {
     return await this.studentService.getStudent(id);
   }
 
-  @Put(&quot;/:id&quot;)
+  @Put(&quot;:id&quot;)
   @ApiOkResponse({ description: &quot;OK&quot; })
   @ApiNotFoundResponse({
     description: &quot;Not Found!&quot;,
@@ -594,7 +593,7 @@ export class StudentsController {
     return await this.studentService.updateStudent(body, id);
   }
 
-  @Delete(&quot;/:id&quot;)
+  @Delete(&quot;:id&quot;)
   @ApiOkResponse({ description: &quot;OK&quot; })
   @ApiNotFoundResponse({ description: &quot;This student not found!&quot; })
   async deleteStudent(@Param(&quot;id&quot;) id: number): Promise&lt;DeleteResult&gt; {

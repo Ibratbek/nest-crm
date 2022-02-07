@@ -131,9 +131,18 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @IsNumber()<br />@Min(1)<br />@Max(5)<br />
+                        </code>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/modules/marks/dto.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/modules/marks/dto.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -158,9 +167,18 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @IsNumber()<br />
+                        </code>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/modules/marks/dto.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/modules/marks/dto.ts:28</a></div>
                         </td>
                     </tr>
 
@@ -185,9 +203,18 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @IsNumber()<br />
+                        </code>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/modules/marks/dto.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/modules/marks/dto.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -208,6 +235,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { StudentDTO } from &quot;../students/dto&quot;;
 import { SubjectDTO } from &quot;../subjects/dto&quot;;
+import { IsNumber, Max, Min } from &quot;class-validator&quot;;
 
 export class MarkDTO {
   id: number;
@@ -218,14 +246,28 @@ export class MarkDTO {
 }
 
 export class CreateMarkDTO {
+  @IsNumber()
   studentId: number;
+
+  @IsNumber()
   subjectId: number;
+
+  @IsNumber()
+  @Min(1)
+  @Max(5)
   mark: number;
 }
 
 export class UpdateMarkDTO {
+  @IsNumber()
   studentId?: number;
+
+  @IsNumber()
   subjectId?: number;
+
+  @IsNumber()
+  @Min(1)
+  @Max(5)
   mark?: number;
 }
 </code></pre>
