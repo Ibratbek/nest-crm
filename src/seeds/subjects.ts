@@ -10,7 +10,7 @@ export default async function subjectSeed() {
     const subjectsRepo = getRepository(Subject);
     await subjectsRepo.query("delete from subjects");
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
       const subject = subjectsRepo.create({
         title: chance.word(),
       });
