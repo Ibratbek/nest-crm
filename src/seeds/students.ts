@@ -13,7 +13,7 @@ export default async function studentSeed() {
     const groupsRepo = getRepository(Group);
     const groups = await groupsRepo.find();
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 10; i++) {
       const student = studentsRepo.create({
         first_name: chance.first(),
         last_name: chance.last(),
