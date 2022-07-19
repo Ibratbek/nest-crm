@@ -33,6 +33,7 @@ import { Teacher } from "../src/Entities/Teachers";
     await groupsRepo.query("delete from groups");
     await subjectsRepo.query("delete from subjects");
     await teachersRepo.query("delete from teachers");
+    
   } catch (error) {
     console.log(error);
   }
