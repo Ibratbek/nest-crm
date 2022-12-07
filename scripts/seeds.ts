@@ -67,3 +67,5 @@ import { Teacher } from "../src/Entities/Teachers";
     console.log(error);
   }
 })();
+
+// console.log('salom')
